@@ -1,16 +1,16 @@
 /*
 ** EPITECH PROJECT, 2024
-** minishell_meta_string
+** meta_libc
 ** File description:
-** main.c
+** meta_strlen.c
 */
 
-int meta_strlen(char const *str)
-{
-    int i = 0;
+#include <stddef.h>
 
-    while (str[i] != '\0') {
-        i++;
-    }
-    return i;
+size_t meta_strlen(char const *str)
+{
+    size_t len = 0;
+
+    for (; str[len]; len++);
+    return len;
 }
