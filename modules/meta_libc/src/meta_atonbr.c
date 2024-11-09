@@ -21,7 +21,7 @@ int meta_atoi(char const *str)
     return OVERFLOW(res) ? META_EXITFAIL : res * sign;
 }
 
-int meta_atol(char const *str)
+long meta_atol(char const *str)
 {
     long res = 0;
     int sign = 1;
@@ -34,7 +34,7 @@ int meta_atol(char const *str)
     return res * sign;
 }
 
-int meta_atoll(char const *str)
+long long meta_atoll(char const *str)
 {
     long long res = 0;
     int sign = 1;
