@@ -7,60 +7,50 @@
 
 CC ?= gcc
 
+CP ?= cp
+
 AR ?= ar
 
-RM = rm
+RM ?= rm
 
-SRC 	=	.hidden/easter_egg.c			\
+SRC     = 	
 
-NAME = libmeta.a
+OBJ = $(SRC:.c=.o)
 
-VPATH = ./headers
+NAME = libmy.a
 
-LDFLAGS = -L./libraries ${LDLIBS}
+TPATH = unit_tests/		\
 
-CPPFLAGS = -iquote $(VPATH) -Wall -Wextra -pedantic
+H_NAME = 
 
-OBJ	= $(SRC:.c=.o)
+VPATH = include/
 
-all:	$(NAME)
+CFLAGS = -Wall -Wextra -pedantic
 
-$(NAME): $(OBJ)
-	$(MAKE) -C modules/meta_libc
-	$(MAKE) -C modules/meta_links
-	$(MAKE) -C modules/meta_ranks
-	$(MAKE) -C modules/meta_csfml
-	$(AR) -rcs $(NAME) $(OBJ)
+CPPFLAGS = -iquote $(VPATH)
 
-clean:
-	$(MAKE) clean -C modules/meta_libc
-	$(MAKE) clean -C modules/meta_links
-	$(MAKE) clean -C modules/meta_ranks
-	$(MAKE) clean -C modules/meta_csfml
-	$(RM) -f $(OBJ)
+TFLAGS = --coverage -lcriterion
 
-fclean: clean
-	$(MAKE) fclean -C modules/meta_libc
-	$(MAKE) fclean -C modules/meta_links
-	$(MAKE) fclean -C modules/meta_ranks
-	$(MAKE) fclean -C modules/meta_csfml
-	$(RM) -f $(NAME)
+all : $(NAME)
+
+$(NAME):  $(OBJ)
+	$(AR) rc $(NAME) $(OBJ)
 
 re: fclean all
 
-ranks :
-	$(MAKE) standalone -C modules/meta_ranks
+clean :
+	$(RM) -f $(OBJ)
+	find -name "*~" -delete -o -name "#*#" -delete -o -name "*.gc*" -delete
 
-csfml :
-	$(MAKE) standalone -C modules/meta_csfml
-
-libc :
-	$(MAKE) standalone -C modules/meta_libc
-
-links :
-	$(MAKE) standalone -C modules/meta_links
+fclean: clean
+	$(RM) -f $(NAME)
 
 debug: CFLAGS += -g3
+
 debug: re
 
-.PHONY: all clean fclean re debug \
+tests_run:
+	$(CC) $(CFLAGS) -o unit_tests $(TPATH) $(SRC) $(CPPFLAGS) $(TFLAGS)
+	./unit_tests
+
+.PHONY: all re clean fclean debug tests_run	\

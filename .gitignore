@@ -16,3 +16,4 @@ libraires
 test
 meta_tools.h
 *.a
+*.gc*

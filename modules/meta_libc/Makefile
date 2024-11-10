@@ -1,45 +1,56 @@
 ##
 ## EPITECH PROJECT, 2024
-## MAKEFILE
+## libmeta
 ## File description:
-## FILEMAKE
+## Makefile
 ##
 
 CC ?= gcc
 
+CP ?= cp
+
 AR ?= ar
 
-RM = rm
+RM ?= rm
 
-SRC 	= $(shell find src -maxdepth 1 -name '*.c' -type f)
+SRC     = 	
 
-NAME = ../../libmeta.a
+OBJ = $(SRC:.c=.o)
 
-VPATH = ./headers
+NAME = libmy.a
 
-HPATH = ./headers/subheaders
+TPATH = unit_tests/		\
 
-CPPFLAGS = -iquote $(VPATH) -iquote $(HPATH) -Wall -Wextra -pedantic
+H_NAME = 
 
-OBJ	= $(SRC:.c=.o)
+VPATH = include/
 
-all:	$(NAME)
+CFLAGS = -Wall -Wextra -pedantic
 
-$(NAME): $(OBJ)
-	$(AR) -rc $(NAME) $(OBJ)
+CPPFLAGS = -iquote $(VPATH)
 
-clean:
+TFLAGS = --coverage -lcriterion
+
+all : $(NAME)
+
+$(NAME):  $(OBJ)
+	$(AR) cq $(NAME) $(OBJ)
+
+re: fclean all
+
+clean :
 	$(RM) -f $(OBJ)
+	find -name "*~" -delete -o -name "#*#" -delete -o -name "*.gc*" -delete
 
 fclean: clean
 	$(RM) -f $(NAME)
 
-re: fclean all
-
-standalone: NAME = ../../libmeta_libc.a
-standalone: all
-
 debug: CFLAGS += -g3
+
 debug: re
 
-.PHONY: all clean fclean re debug \
+tests_run:
+	$(CC) $(CFLAGS) -o unit_tests $(TPATH) $(SRC) $(CPPFLAGS) $(TFLAGS)
+	./unit_tests
+
+.PHONY: all re clean fclean debug tests_run	\
