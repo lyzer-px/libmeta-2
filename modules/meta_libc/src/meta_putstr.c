@@ -10,5 +10,5 @@
 
 int meta_putstr(char const *str)
 {
-    return write(1, str, meta_strlen(str));
+    return str ? write(1, str, meta_strlen(str)) : write(1, "(null)", 6);
 }

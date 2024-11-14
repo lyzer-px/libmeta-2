@@ -32,6 +32,12 @@ char *meta_strncpy(char *dest, const char *src, unsigned int n);
 char *meta_strcat(char *dest, const char *src);
 char *meta_strncat(char *dest, const char *src, unsigned int n);
 
+
+char *meta_strdup(char const *src);
+char *meta_strndup(const char *src, unsigned int n);
+
+char *meta_strstr(char *str, char const *to_find);
+
 size_t meta_strlen(char const *str);
 
 int meta_strcmp(char const *a, char const *b);
