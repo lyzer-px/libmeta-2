@@ -7,6 +7,7 @@
 
 #ifndef META_LIBC
     #define META_LIBC
+    #include <stddef.h>
     #ifndef META_EXTFAIL
         #define META_EXTFAIL 84
     #endif

@@ -9,9 +9,9 @@
 
 char *meta_strcpy(char *dest, const char *src)
 {
-    if (!src)
-        return NULL;
-    for (size_t i = 0; src[i]; i++)
+    size_t i = 0;
+
+    for (; src[i]; i++)
         dest[i] = src[i];
     dest[i] = '\0';
     return dest;
