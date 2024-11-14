@@ -7,7 +7,7 @@
 
 #include <unistd.h>
 
-int my_putchar(char const c)
+int meta_putchar(char const c)
 {
     return write(1, &c, 1);
 }

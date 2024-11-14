@@ -5,7 +5,9 @@
 ** meta_puterr.c
 */
 
-int my_puterr(char const *str)
+#include <unistd.h>
+
+int meta_puterr(char const *str)
 {
-    return write(2, str, my_strlen(str));
+    return write(2, str, meta_strlen(str));
 }

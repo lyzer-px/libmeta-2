@@ -5,7 +5,9 @@
 ** meta_putstr.c
 */
 
-int my_putstr(char const *str)
+#include <unistd.h>
+
+int meta_putstr(char const *str)
 {
-    return write(1, str, my_strlen(str));
+    return write(1, str, meta_strlen(str));
 }

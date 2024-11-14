@@ -13,15 +13,27 @@ AR ?= ar
 
 RM ?= rm
 
-SRC     = 	
+SRC     = 	src/meta_atonbr.c		\
+			src/meta_putchar.c		\
+			src/meta_puterr.c		\
+			src/meta_putnbr.c		\
+			src/meta_putstr.c		\
+			src/meta_strcat.c		\
+			src/meta_strcmp.c		\
+			src/meta_strcpy.c		\
+			src/meta_strdup.c		\
+			src/meta_strlen.c		\
+			src/meta_strncat.c		\
+			src/meta_strncmp.c		\
+			src/meta_strncpy.c		\
+			src/meta_strndup.c		\
+			src/meta_strstr.c
 
 OBJ = $(SRC:.c=.o)
 
 NAME = libmy.a
 
 TPATH = unit_tests/		\
-
-H_NAME = 
 
 VPATH = include/
 
