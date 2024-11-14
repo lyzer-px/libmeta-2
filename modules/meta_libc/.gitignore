@@ -11,3 +11,4 @@ tests
 metamorph_lib
 meta_libc
 ignored
+unit_tests*
