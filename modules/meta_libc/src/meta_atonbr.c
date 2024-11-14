@@ -18,7 +18,7 @@ int meta_atoi(char const *str)
     for (; !IS_NUM(str[i]); i++);
     sign = str[i - 1] == '-' ? -1 : 1;
     for (; IS_NUM(str[i]); i++)
-        res = res * 10 + str[i] - 48;
+        res = res * 10 + str[i] - '0';
     return OVERFLOW(res) ? META_EXTFAIL : res * sign;
 }
 
@@ -31,7 +31,7 @@ long meta_atol(char const *str)
     for (; !IS_NUM(str[i]); i++);
     sign = str[i - 1] == '-' ? -1 : 1;
     for (; IS_NUM(str[i]); i++)
-        res = res * 10 + str[i] - 48;
+        res = res * 10 + str[i] - '0';
     return res * sign;
 }
 
@@ -44,6 +44,6 @@ long long meta_atoll(char const *str)
     for (; !IS_NUM(str[i]); i++);
     sign = str[i - 1] == '-' ? -1 : 1;
     for (; IS_NUM(str[i]); i++)
-        res = res * 10 + str[i] - 48;
+        res = res * 10 + str[i] - '0';
     return res * sign;
 }
