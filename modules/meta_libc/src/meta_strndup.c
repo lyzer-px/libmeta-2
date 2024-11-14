@@ -10,5 +10,5 @@
 
 char *meta_strndup(char const *src, unsigned int n)
 {
-    return meta_strcpy(malloc(sizeof(char) * meta_strlen(src) + 1), src, n);
+    return meta_strncpy(malloc(sizeof(char) * meta_strlen(src) + 1), src, n);
 }

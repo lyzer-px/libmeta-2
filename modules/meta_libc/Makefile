@@ -27,15 +27,16 @@ SRC     = 	src/meta_atonbr.c		\
 			src/meta_strncmp.c		\
 			src/meta_strncpy.c		\
 			src/meta_strndup.c		\
-			src/meta_strstr.c
+			src/meta_strstr.c		\
+			src/meta_mprintf.c
 
 OBJ = $(SRC:.c=.o)
 
-NAME = libmy.a
+NAME = ../../libmeta.a
 
-TPATH = unit_tests/		\
+TPATH 	= 	unitests/unit_tests.c		\
 
-VPATH = include/
+VPATH = include
 
 CFLAGS = -Wall -Wextra -pedantic
 
@@ -58,7 +59,6 @@ fclean: clean
 	$(RM) -f $(NAME)
 
 debug: CFLAGS += -g3
-
 debug: re
 
 tests_run:

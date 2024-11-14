@@ -18,10 +18,10 @@
         #define IS_ALPHANUM(c) IS_ALPHA(c) || IS_NUM(c)
     #endif
     #ifndef TOO_LOW
-        #define TOO_LOW(nb) (long)nb < (long)INT_MIN
+        #define TOO_LOW(nb) nb < INT_MIN
     #endif
     #ifndef TOO_BIG
-        #define TOO_BIG(nb) (long)nb < (long)INT_MIN
+        #define TOO_BIG(nb) nb < INT_MIN
     #endif
     #ifndef OVERFLOW
         #define OVERFLOW(nb) TOO_LOW(nb) || TOO_BIG(nb)
