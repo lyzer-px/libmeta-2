@@ -19,7 +19,7 @@ OBJ = $(SRC:.c=.o)
 
 NAME = libmy.a
 
-TPATH = unit_tests/		\
+TPATH = unitests/	\
 
 H_NAME = 
 

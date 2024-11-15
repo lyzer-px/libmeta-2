@@ -95,6 +95,7 @@ Test(meta_strcmp, print)
 Test(meta_strncmp, print)
 {
     cr_assert_eq(meta_strncmp("hi", "hi", 1), 0);
+    cr_assert_eq(meta_strncmp("Hello World", "Hello ", 6), 0);
     cr_assert_neq(meta_strncmp("yi", "hi", 1), 0);
 }
 

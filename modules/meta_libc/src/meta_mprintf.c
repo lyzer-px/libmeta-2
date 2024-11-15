@@ -12,9 +12,9 @@ static int check_flag(char flag, va_list arg)
 {
     switch (flag) {
         case 'd':
-            return meta_put_nbr(va_arg(arg, int));
+            return meta_putnbr(va_arg(arg, int));
         case 'i':
-            return meta_put_nbr(va_arg(arg, int));
+            return meta_putnbr(va_arg(arg, int));
         case 's':
             return meta_putstr(va_arg(arg, char *));
         case 'c':
