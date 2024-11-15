@@ -11,6 +11,10 @@ char *meta_strncpy(char *dest, const char *src, unsigned int n)
 {
     size_t i = 0;
 
+    if(!dest)
+        return NULL;
+    if (!src)
+        return dest;
     for (; src[i] && i < n; i++)
         dest[i] = src[i];
     dest[i] = '\0';

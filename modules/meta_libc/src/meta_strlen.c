@@ -11,6 +11,8 @@ size_t meta_strlen(char const *str)
 {
     size_t len = 0;
 
+    if (!str)
+        return 0;
     for (; str[len]; len++);
     return len;
 }
