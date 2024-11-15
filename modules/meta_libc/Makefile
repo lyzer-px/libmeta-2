@@ -52,11 +52,11 @@ $(NAME):  $(OBJ)
 re: fclean all
 
 clean :
-	$(RM) -f $(OBJ)
+	$(RM) $(OBJ)
 	find -name "*~" -delete -o -name "#*#" -delete -o -name "*.gc*" -delete
 
 fclean: clean
-	$(RM) -f $(NAME)
+	$(RM) $(NAME)
 
 debug: CFLAGS += -g3
 debug: re
