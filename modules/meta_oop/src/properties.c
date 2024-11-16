@@ -46,19 +46,20 @@ meta_str_arr_t meta_new_str_array(char **array)
 
     str_arr.size = size;
     str_arr.byte_size = byte_size;
-    str_arr.arr = meta_fill_str_array(obj_arr, array);
+    str_arr.list = meta_fill_str_array(obj_arr, array);
     return str_arr;
 }
 
 void meta_destroy_str(meta_string_t *obj)
 {
-    free(obj->str);
+    if (obj->str != NULL)
+        free(obj->str);
     obj->len = 0;
     obj->byte_size = 0;
 }
 
 void meta_destroy_str_arr(meta_str_arr_t *str_arr)
 {
-    for (size_t i = 0; i <= str_arr->size; i++)
-        meta_destroy_str(str_arr->arr);
+    for (size_t i = 0; i < str_arr->size; i++)
+        meta_destroy_str(&(str_arr->list[i]));
 }

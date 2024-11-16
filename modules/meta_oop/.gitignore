@@ -3,12 +3,10 @@ libmeta_libc.a
 *~
 *#
 .vscode
-vgcore*
 a.out
 compile_flags.txt
 coding-style-reports.log
-tests
-metamorph_lib
 meta_libc
 ignored
 unit_tests
+*.a
