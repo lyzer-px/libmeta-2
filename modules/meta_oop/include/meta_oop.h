@@ -8,8 +8,11 @@
 #ifndef META_OOP
     #define META_OOP
     #include <stddef.h>
-    #ifndef META_OBJ_NULL
+    #ifndef META_STR_NULL
         #define META_STR_NULL (*(meta_string_t *)0)
+    #endif
+    #ifndef META_STRARR_NULL
+        #define META_STRARR_NULL (*(meta_str_arr_t *)0)
     #endif
 
 typedef struct meta_str {

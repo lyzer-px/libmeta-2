@@ -5,7 +5,9 @@
 ** properties.c
 */
 
+#include <stdlib.h>
 #include <stdbool.h>
+#include "meta_libc.h"
 #include "meta_oop.h"
 
 size_t meta_get_arr_size(char **array)
@@ -32,7 +34,6 @@ meta_string_t *meta_fill_str_array(meta_string_t *obj_arr, char **array)
 
     for (; array[i]; i++)
         obj_arr[i] = meta_new_string(array[i]);
-    obj_arr[i] = META_STR_NULL;
     return obj_arr;
 }
 
@@ -58,7 +59,6 @@ void meta_destroy_str(meta_string_t *obj)
 
 void meta_destroy_str_arr(meta_str_arr_t *str_arr)
 {
-    for (; str_arr[i] != META_STR_NULL; i++)
+    for (size_t i = 0; i <= str_arr->size; i++)
         meta_destroy_str(str_arr->arr);
-    return obj_arr;
 }

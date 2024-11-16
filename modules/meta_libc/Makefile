@@ -48,6 +48,7 @@ all : $(NAME)
 
 $(NAME):  $(OBJ)
 	$(AR) cq $(NAME) $(OBJ)
+	$(CP) $(NAME) ../meta_oop/lib/libmeta_base.a
 
 re: fclean all
 

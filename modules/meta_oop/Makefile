@@ -24,9 +24,11 @@ TPATH 	= 	unitests/unit_tests.c		\
 
 VPATH = include
 
-CFLAGS = -Wall -Wextra -pedantic
+MLIBC = ../meta_libc/include
 
-CPPFLAGS = -iquote $(VPATH)
+CFLAGS = -Wall -Wextra -pedantic -Llib -lmeta_base.a
+
+CPPFLAGS = -iquote $(VPATH) -iquote $(MLIBC)
 
 TFLAGS = --coverage -lcriterion
 
