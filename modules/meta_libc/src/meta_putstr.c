@@ -7,6 +7,8 @@
 
 #include <unistd.h>
 #include "meta_libc.h"
+#include "meta/utils.h"
+
 
 ssize_t meta_putstr(char const *str)
 {

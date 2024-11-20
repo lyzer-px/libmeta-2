@@ -8,6 +8,7 @@
 #include <stdio.h>
 #include <stddef.h>
 #include "meta_libc.h"
+#include "meta/utils.h"
 
 short int meta_strncmp(char const *a, char const *b, unsigned int n)
 {

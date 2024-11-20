@@ -10,12 +10,6 @@
     #include <stddef.h>
     #include <stdarg.h>
     #include <unistd.h>
-    #ifndef META_ERR
-        #define META_ERR 84
-    #endif
-    #ifndef META_SUCCESS
-        #define META_SUCCESS 0
-    #endif
 
 int meta_atoi(char const *str);
 long meta_atol(char const *str);
@@ -43,4 +37,6 @@ ssize_t meta_strlen(char const *str);
 
 short int meta_strcmp(char const *a, char const *b);
 short int meta_strncmp(char const *a, char const *b, unsigned int n);
+
+char **meta_word_array_delim(char *str, char delim);
 #endif

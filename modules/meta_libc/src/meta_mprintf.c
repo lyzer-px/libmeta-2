@@ -6,6 +6,8 @@
 */
 
 #include <stdarg.h>
+#include <unistd.h>
+#include "meta/utils.h"
 #include "meta_libc.h"
 
 static int check_flag(char flag, va_list arg)

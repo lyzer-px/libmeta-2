@@ -6,6 +6,8 @@
 */
 
 #include "meta_libc.h"
+#include "meta/utils.h"
+
 
 int meta_putnbr(int nb)
 {
