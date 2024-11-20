@@ -11,6 +11,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "meta_libc.h"
+#include "meta_libc_macros.h"
 
 #define HELLO_WORLD_LEN 11
 

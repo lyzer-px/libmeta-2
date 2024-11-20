@@ -10,7 +10,9 @@
 
 char *meta_strdup(char const *src)
 {
-    if (!src)
+    char *dest = malloc(sizeof(char) * meta_strlen(src) + 1);
+
+    if (dest == NULL || src == NULL)
         return NULL;
-    return meta_strcpy(malloc(sizeof(char) * meta_strlen(src) + 1), src);
+    return meta_strcpy(dest, src);
 }

@@ -22,7 +22,7 @@ static int check_flag(char flag, va_list arg)
         case '%':
             return meta_putchar('%');
     }
-    return -500;
+    return -META_ERR;
 }
 
 int meta_mprintf(const char *format, ...)

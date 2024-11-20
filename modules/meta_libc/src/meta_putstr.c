@@ -8,7 +8,9 @@
 #include <unistd.h>
 #include "meta_libc.h"
 
-int meta_putstr(char const *str)
+ssize_t meta_putstr(char const *str)
 {
-    return str ? write(1, str, meta_strlen(str)) : write(1, "(null)", 6);
+    ssize_t ret = write(STDOUT_FILENO, str, meta_strlen(str));
+
+    return ret < 0 ? META_ERR : ret;
 }

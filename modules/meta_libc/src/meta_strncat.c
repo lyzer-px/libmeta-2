@@ -9,6 +9,9 @@
 
 char *meta_strncat(char *dest, const char *src, unsigned int n)
 {
-    meta_strncpy(dest + meta_strlen(dest), src, n);
-    return dest;
+    if (dest == NULL)
+        return NULL;
+    if (src == NULL)
+        return dest;
+    return meta_strncpy(dest + meta_strlen(dest), src, n);
 }

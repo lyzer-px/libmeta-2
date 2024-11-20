@@ -9,6 +9,9 @@
 
 char *meta_strcat(char *dest, const char *src)
 {
-    meta_strcpy(dest + meta_strlen(dest), src);
-    return dest;
+    if (dest == NULL)
+        return NULL;
+    if (src == NULL)
+        return dest;
+    return meta_strcpy(dest + meta_strlen(dest), src);
 }

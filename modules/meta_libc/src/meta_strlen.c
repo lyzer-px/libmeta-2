@@ -6,13 +6,14 @@
 */
 
 #include <stddef.h>
+#include "meta_libc.h"
 
-size_t meta_strlen(char const *str)
+ssize_t meta_strlen(char const *str)
 {
-    size_t len = 0;
+    ssize_t len = 0;
 
-    if (!str)
-        return 0;
+    if (str == NULL)
+        return -META_ERR;
     for (; str[len]; len++);
     return len;
 }

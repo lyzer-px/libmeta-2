@@ -9,6 +9,7 @@
     #define META_LIBC
     #include <stddef.h>
     #include <stdarg.h>
+    #include <unistd.h>
     #ifndef META_ERR
         #define META_ERR 84
     #endif
@@ -20,9 +21,9 @@ int meta_atoi(char const *str);
 long meta_atol(char const *str);
 long long meta_atoll(char const *str);
 
-int meta_putchar(char const c);
-int meta_putstr(char const *str);
-int meta_puterr(char const *str);
+ssize_t meta_putchar(char const c);
+ssize_t meta_putstr(char const *str);
+ssize_t meta_puterr(char const *str);
 int meta_putnbr(int nb);
 int meta_mprintf(const char *format, ...);
 
@@ -38,8 +39,8 @@ char *meta_strndup(const char *src, unsigned int n);
 
 char *meta_strstr(char *str, char const *to_find);
 
-size_t meta_strlen(char const *str);
+ssize_t meta_strlen(char const *str);
 
-int meta_strcmp(char const *a, char const *b);
-int meta_strncmp(char const *a, char const *b, unsigned int n);
+short int meta_strcmp(char const *a, char const *b);
+short int meta_strncmp(char const *a, char const *b, unsigned int n);
 #endif

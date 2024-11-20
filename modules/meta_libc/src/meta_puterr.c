@@ -8,7 +8,9 @@
 #include <unistd.h>
 #include "meta_libc.h"
 
-int meta_puterr(char const *str)
+ssize_t meta_puterr(char const *str)
 {
-    return write(2, str, meta_strlen(str));
+    ssize_t ret = write(STDERR_FILENO, str, meta_strlen(str));
+
+    return ret < 0 ? META_ERR : ret;
 }

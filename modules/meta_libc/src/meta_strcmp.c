@@ -6,12 +6,16 @@
 */
 
 #include <stddef.h>
+#include <unistd.h>
+#include "meta_libc.h"
 
-int meta_strcmp(char const *a, char const *b)
+short int meta_strcmp(char const *a, char const *b)
 {
     size_t i = 0;
-    int count = 0;
+    short int count = 0;
 
+    if (a == NULL || b == NULL)
+        return -META_ERR;
     for (; a[i] && b[i]; i++)
         count += a[i] - b[i];
     return count;
