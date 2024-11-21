@@ -33,7 +33,7 @@ char *meta_strndup(const char *src, unsigned int n);
 
 char *meta_strstr(char *str, char const *to_find);
 
-ssize_t meta_strlen(char const *str);
+size_t meta_strlen(char const *str);
 
 short int meta_strcmp(char const *a, char const *b);
 short int meta_strncmp(char const *a, char const *b, unsigned int n);

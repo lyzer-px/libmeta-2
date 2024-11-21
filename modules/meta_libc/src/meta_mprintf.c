@@ -33,6 +33,8 @@ int meta_mprintf(const char *format, ...)
     va_list arg;
     int count = 0;
 
+    if (format == NULL)
+        return META_ERR;
     va_start(arg, format);
     for (; format[i]; i++) {
         if (format[i] == '%') {

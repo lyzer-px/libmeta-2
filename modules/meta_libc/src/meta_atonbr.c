@@ -8,7 +8,6 @@
 #include <stddef.h>
 #include "meta_libc.h"
 #include "meta/utils.h"
-#include "meta_libc_macros.h"
 
 int meta_atoi(char const *str)
 {
@@ -20,7 +19,7 @@ int meta_atoi(char const *str)
     sign = str[i - 1] == '-' ? -1 : 1;
     for (; IS_NUM(str[i]); i++)
         res = res * 10 + str[i] - '0';
-    return OVERFLOW(res) ? -META_ERR : res * sign;
+    return res * sign;
 }
 
 long meta_atol(char const *str)
