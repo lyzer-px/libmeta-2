@@ -18,6 +18,7 @@ typedef struct meta_watcher_s {
     sfClock *clock;
     sfMusic *music;
     sfFont *font;
+    struct meta_watcher_s *prev;
     struct meta_watcher_s *next;
 } meta_watcher_t;
 
