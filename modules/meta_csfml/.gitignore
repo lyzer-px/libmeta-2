@@ -1,0 +1,13 @@
+libmeta_csfml.a
+*.o
+*~
+*#
+.vscode
+vgcore*
+a.out
+compile_flags.txt
+coding-style-reports.log
+tests
+metamorph_lib
+my_libc
+customs_libs/libmeta
