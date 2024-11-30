@@ -12,14 +12,15 @@
     #include <SFML/System/Types.h>
     #include <SFML/Window/Event.h>
 
-typedef struct meta_system_s {
+typedef struct meta_watcher_s {
     meta_window_t *window;
     sfEvent event;
     sfClock *clock;
     sfMusic *music;
     sfFont *font;
-} meta_system_t;
+    struct meta_watcher_s *next;
+} meta_watcher_t;
 
-meta_system_t *system_create(void);
-void system_destroy(meta_system_t *system);
+meta_watcher_t *watcher_create(char const *watched_window_name);
+void watcher_destroy(meta_watcher_t *watcher);
 #endif
