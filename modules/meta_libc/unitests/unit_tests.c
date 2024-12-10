@@ -10,8 +10,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "meta/utils.h"
-#include "meta_libc.h"
+#include "meta/libc.h"
 
 #define HELLO_WORLD_LEN 11
 

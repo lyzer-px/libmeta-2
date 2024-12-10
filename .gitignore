@@ -1,6 +1,7 @@
 libmeta.a
 *.o
 *~
+.cache
 *#
 .vscode
 vgcore*

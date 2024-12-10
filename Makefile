@@ -1,56 +1,60 @@
 ##
 ## EPITECH PROJECT, 2024
-## libmeta
+## MAKEFILE
 ## File description:
-## Makefile
+## FILEMAKE
 ##
 
-CC ?= gcc
+AR 	?= ar
 
-CP ?= cp
+CC 	?= gcc
 
-AR ?= ar
+SRC 	=	src/main.c 					\
+			src/my_top.c				\
+			src/get_info.c				\
+			src/process.c				\
+			src/tools.c
 
-RM ?= rm
 
-SRC     = 	
+MODULES	= 	modules
 
-OBJ = $(SRC:.c=.o)
+LIBC 	=	meta_libc
 
-NAME = libmy.a
+LINKED	= meta_linked_lists
 
-TPATH = unitests/	\
+NAME 	= 	my_top
 
-H_NAME = 
+VPATH 	= 	include
 
-VPATH = include/
+CFLAGS 	+= 	-Wall -Wextra -pedantic
 
-CFLAGS = -Wall -Wextra -pedantic
+CPPFLAGS = 	-isystem $(VPATH)
 
-CPPFLAGS = -iquote $(VPATH)
+OBJ		 = 	$(SRC:.c=.o)
 
-TFLAGS = --coverage -lcriterion
+all:	$(NAME)
 
-all : $(NAME)
-
-$(NAME):  $(OBJ)
-	$(AR) rc $(NAME) $(OBJ)
-
-re: fclean all
-
-clean :
-	$(RM) -f $(OBJ)
-	find -name "*~" -delete -o -name "#*#" -delete -o -name "*.gc*" -delete
+$(NAME): $(OBJ)
+	$(MAKE) -C $(MODULES)/$(LIBC)
+	$(MAKE) -C $(MODULES)/$(LINKED)
+	$(AR) -rcs $(NAME) $(OBJ)
+clean:
+	$(MAKE) clean -C $(MODULES)/$(LIBC)
+	$(MAKE) clean -C $(MODULES)/$(LINKED)
+	$(RM) $(OBJ)
 
 fclean: clean
-	$(RM) -f $(NAME)
+	$(MAKE) fclean -C $(MODULES)/$(LIBC)
+	$(MAKE) fclean -C $(MODULES)/$(LINKED)
+	$(RM) $(NAME)
+
+re: fclean all
+	$(MAKE) fclean -C $(MODULES)/$(LIBC)
+	$(MAKE) fclean -C $(MODULES)/$(LINKED)
 
 debug: CFLAGS += -g3
-
 debug: re
+	$(MAKE) debug -C $(MODULES)/$(LIBC)
+	$(MAKE) debug -C $(MODULES)/$(LINKED)
 
-tests_run:
-	$(CC) $(CFLAGS) -o unit_tests $(TPATH) $(SRC) $(CPPFLAGS) $(TFLAGS)
-	./unit_tests
-
-.PHONY: all re clean fclean debug tests_run	\
+.PHONY: all clean fclean re debug
