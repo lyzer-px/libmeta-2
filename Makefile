@@ -10,7 +10,7 @@ AR 	?= ar
 CC 	?= gcc
 
 SRC 	=	src/main.c 					\
-			src/my_top.c				\
+			src/meta_top.c				\
 			src/get_info.c				\
 			src/process.c				\
 			src/tools.c
@@ -22,7 +22,7 @@ LIBC 	=	meta_libc
 
 LINKED	= meta_linked_lists
 
-NAME 	= 	my_top
+NAME 	= 	meta_top
 
 VPATH 	= 	include
 

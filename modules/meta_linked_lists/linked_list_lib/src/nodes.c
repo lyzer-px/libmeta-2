@@ -53,7 +53,7 @@ linked_list_t *delete_node(linked_list_t *head, unsigned int index)
 void display_list(linked_list_t *list)
 {
     for (linked_list_t *current = list; current->next; current = current->next)
-        my_putstr((char const *)(current->data));
+        meta_putstr((char const *)(current->data));
 }
 
 void destroy_list(linked_list_t *head)

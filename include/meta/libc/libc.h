@@ -17,9 +17,16 @@ long meta_atol(char const *str);
 long long meta_atoll(char const *str);
 
 ssize_t meta_putchar(char const c);
+ssize_t meta_putcharfd(int fd, char const c);
+
 ssize_t meta_putstr(char const *str);
+ssize_t meta_putstrfd(int fd, char const *str);
+
 ssize_t meta_puterr(char const *str);
+
 int meta_putnbr(int nb);
+int meta_putnbrfd(int fd, int nb);
+
 int meta_mprintf(const char *format, ...);
 
 char *meta_strcpy(char *dest, const char *src);
