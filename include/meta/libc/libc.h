@@ -9,6 +9,7 @@
     #define META_LIBC
     #include <stddef.h>
     #include <stdarg.h>
+    #include <stdbool.h>
     #include <unistd.h>
 
 int meta_atoi(char const *str);
