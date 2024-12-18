@@ -5,7 +5,7 @@
 ** meta_strcat.c
 */
 
-#include "meta_libc.h"
+#include <meta/libc/libc.h>
 
 char *meta_strncat(char *dest, const char *src, unsigned int n)
 {

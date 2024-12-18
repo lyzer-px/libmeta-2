@@ -5,8 +5,8 @@
 ** meta_putnbr.c
 */
 
-#include "meta_libc.h"
-#include "meta/utils.h"
+#include <meta/libc/libc.h>
+#include <meta/libc/utils.h>
 
 
 int meta_putnbr(int nb)

@@ -7,7 +7,7 @@
 
 #include <stddef.h>
 #include <unistd.h>
-#include "meta/utils.h"
+#include <meta/libc/utils.h>
 
 size_t meta_strlen(char const *str)
 {

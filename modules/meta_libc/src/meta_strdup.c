@@ -6,7 +6,7 @@
 */
 
 #include <stdlib.h>
-#include "meta_libc.h"
+#include <meta/libc/libc.h>
 
 char *meta_strdup(char const *src)
 {

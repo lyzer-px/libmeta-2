@@ -6,8 +6,8 @@
 */
 
 #include <stddef.h>
-#include "meta_libc.h"
-#include "meta/utils.h"
+#include <meta/libc/utils.h>
+#include <meta/libc/libc.h>
 
 int meta_atoi(char const *str)
 {

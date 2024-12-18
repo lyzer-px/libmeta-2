@@ -7,7 +7,7 @@
 
 #include <stddef.h>
 #include <unistd.h>
-#include "meta/utils.h"
+#include <meta/libc/utils.h>
 
 short int meta_strcmp(char const *a, char const *b)
 {

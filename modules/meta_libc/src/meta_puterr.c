@@ -6,8 +6,8 @@
 */
 
 #include <unistd.h>
-#include "meta_libc.h"
-#include "meta/utils.h"
+#include <meta/libc/libc.h>
+#include <meta/libc/utils.h>
 
 ssize_t meta_puterr(char const *str)
 {

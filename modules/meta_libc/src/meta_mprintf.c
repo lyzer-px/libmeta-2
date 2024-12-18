@@ -7,8 +7,8 @@
 
 #include <stdarg.h>
 #include <unistd.h>
-#include "meta/utils.h"
-#include "meta_libc.h"
+#include <meta/libc/utils.h>
+#include <meta/libc/libc.h>
 
 static int check_flag(char flag, va_list arg)
 {
@@ -24,7 +24,7 @@ static int check_flag(char flag, va_list arg)
         case '%':
             return meta_putchar('%');
     }
-    return -META_ERR;
+    return META_FUNC_ERR;
 }
 
 int meta_mprintf(const char *format, ...)
@@ -34,7 +34,7 @@ int meta_mprintf(const char *format, ...)
     int count = 0;
 
     if (format == NULL)
-        return META_ERR;
+        return META_ERROR;
     va_start(arg, format);
     for (; format[i]; i++) {
         if (format[i] == '%') {

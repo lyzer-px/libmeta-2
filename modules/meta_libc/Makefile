@@ -7,20 +7,33 @@
 
 CC ?= gcc
 
-SRC 	=	src/main.c 					\
-			src/my_top.c				\
-			src/get_info.c				\
-			src/process.c				\
-			src/tools.c
-
+SRC 	=	src/meta_atonbr.c				\
+			src/meta_mprintf.c				\
+			src/meta_putchar.c				\
+			src/meta_puterr.c				\
+			src/meta_putnbr.c				\
+			src/meta_putstr.c				\
+			src/meta_strcat.c				\
+			src/meta_strcmp.c				\
+			src/meta_strcpy.c				\
+			src/meta_strdup.c				\
+			src/meta_strlen.c				\
+			src/meta_strncat.c				\
+			src/meta_strncmp.c				\
+			src/meta_strncpy.c				\
+			src/meta_strndup.c				\
+			src/meta_strstr.c				\
+			src/meta_word_array_delim.c		\
 
 NAME 	= 	my_top
 
-VPATH 	= 	./include
+ROOT	=	../../
+
+VPATH 	= 	include/
 
 CFLAGS 	+= 	-Wall -Wextra -pedantic
 
-CPPFLAGS = 	-iquote $(VPATH)
+CPPFLAGS = 	-isystem $(VPATH)
 
 OBJ		 = 	$(SRC:.c=.o)
 
@@ -39,4 +52,4 @@ re: fclean all
 debug: CFLAGS += -g3
 debug: re
 
-.PHONY: all clean fclean re debug
+.PHONY: all clean fclean re debug	\

@@ -6,11 +6,11 @@
 */
 
 #include <unistd.h>
-#include "meta/utils.h"
+#include <meta/libc/utils.h>
 
 ssize_t meta_putchar(char const c)
 {
     ssize_t ret = write(1, &c, 1);
 
-    return ret < 0 ? -META_ERR : ret;
+    return ret < 0 ? -META_ERROR : ret;
 }

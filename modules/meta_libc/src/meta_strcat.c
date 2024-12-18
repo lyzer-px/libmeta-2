@@ -6,7 +6,7 @@
 */
 
 #include <string.h>
-#include "meta_libc.h"
+#include <meta/libc/libc.h>
 
 char *meta_strcat(char *dest, const char *src)
 {
