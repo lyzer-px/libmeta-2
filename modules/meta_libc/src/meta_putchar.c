@@ -8,9 +8,14 @@
 #include <unistd.h>
 #include <meta/libc/utils.h>
 
-ssize_t meta_putchar(char const c)
+ssize_t meta_putcharfd(int fd, char const c)
 {
-    ssize_t ret = write(1, &c, 1);
+    ssize_t ret = write(fd, &c, 1);
 
     return ret < 0 ? -META_ERROR : ret;
+}
+
+ssize_t meta_putchar(char const c)
+{
+    return meta_putcharfd(STDOUT_FILENO, c);
 }

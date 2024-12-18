@@ -34,10 +34,10 @@ char *meta_strndup(const char *src, unsigned int n);
 
 char *meta_strstr(char *str, char const *to_find);
 
-size_t meta_strlen(char const *str);
+ssize_t meta_strlen(char const *str);
 
-short int meta_strcmp(char const *a, char const *b);
-short int meta_strncmp(char const *a, char const *b, unsigned int n);
+ssize_t meta_strcmp(char const *a, char const *b);
+ssize_t meta_strncmp(char const *a, char const *b, unsigned int n);
 
 char **meta_word_array_delim(char *str, char delim);
 #endif

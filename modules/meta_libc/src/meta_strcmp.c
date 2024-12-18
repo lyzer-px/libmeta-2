@@ -9,13 +9,13 @@
 #include <unistd.h>
 #include <meta/libc/utils.h>
 
-short int meta_strcmp(char const *a, char const *b)
+ssize_t meta_strcmp(char const *a, char const *b)
 {
     size_t i = 0;
     short int count = 0;
 
-    if (a == NULL || b == NULL)
-        return -META_ERR;
+    if (META_STR_EQ_NULL(a) || META_STR_EQ_NULL(b))
+        return META_FUNC_ERR;
     for (; a[i] && b[i]; i++)
         count += a[i] - b[i];
     return count;

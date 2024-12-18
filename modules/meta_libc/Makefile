@@ -27,9 +27,9 @@ SRC 	=	src/meta_atonbr.c				\
 
 NAME 	= 	my_top
 
-ROOT	=	../../
+ROOT	=	../..
 
-VPATH 	= 	include/
+VPATH 	= 	$(ROOT)/include/
 
 CFLAGS 	+= 	-Wall -Wextra -pedantic
 
