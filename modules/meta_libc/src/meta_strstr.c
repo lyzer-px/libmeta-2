@@ -14,7 +14,7 @@ char *meta_strstr(char *str, char const *to_find)
     ssize_t needle_len = meta_strlen(to_find);
     ssize_t size = meta_strlen(str);
 
-    if (needle_len == META_ERR || size == META_ERR)
+    if (needle_len == META_ERROR || size == META_ERROR)
         return NULL;
     for (int i = 0; (i + needle_len <= size) && str[i]; i++)
         if (meta_strncmp(str + i, to_find, needle_len) == 0)

@@ -25,9 +25,9 @@ SRC 	=	src/meta_atonbr.c				\
 			src/meta_strstr.c				\
 			src/meta_word_array_delim.c		\
 
-NAME 	= 	my_top
-
 ROOT	=	../..
+
+NAME 	= 	$(ROOT)/libmeta.a
 
 VPATH 	= 	$(ROOT)/include/
 
