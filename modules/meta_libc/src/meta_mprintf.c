@@ -2,47 +2,66 @@
 ** EPITECH PROJECT, 2024
 ** mini_printf
 ** File description:
-** a simple verion of meta_printf
+** a simple verion of my_printf
 */
 
 #include <stdarg.h>
-#include <unistd.h>
-#include <meta/libc/utils.h>
-#include <meta/libc/libc.h>
+#include "my.h"
 
-static int check_flag(char flag, va_list arg)
+int check_flag(int fd, char flag, va_list arg)
 {
     switch (flag) {
         case 'd':
-            return meta_putnbr(va_arg(arg, int));
+            return my_put_nbrfd(fd, va_arg(arg, int));
+            break;
         case 'i':
-            return meta_putnbr(va_arg(arg, int));
+            return my_put_nbrfd(fd, va_arg(arg, int));
+            break;
         case 's':
-            return meta_putstr(va_arg(arg, char *));
+            return my_putstrfd(fd, va_arg(arg, char *));
+            break;
         case 'c':
-            return meta_putchar(va_arg(arg, int));
+            return my_putcharfd(fd, va_arg(arg, int));
+            break;
         case '%':
-            return meta_putchar('%');
+            return my_putcharfd(fd, '%');
     }
-    return META_FUNC_ERR;
+    return -500;
 }
 
-int meta_mprintf(const char *format, ...)
+int mini_printf(const char *format, ...)
 {
     int i = 0;
     va_list arg;
     int count = 0;
 
-    if (format == NULL)
-        return META_ERROR;
     va_start(arg, format);
     for (; format[i]; i++) {
         if (format[i] == '%') {
-            count += check_flag(format[i + 1], arg);
+            count += check_flag(1, format[i + 1], arg);
             i++;
             continue;
         }
-        count += meta_putchar(format[i]);
+        count += my_putchar(format[i]);
+    }
+    va_end(arg);
+    return count;
+}
+
+int mini_dprintf(int fd, const char *format, ...)
+{
+    int i = 0;
+    va_list arg;
+    int count = 0;
+
+    va_start(arg, format);
+    for (; format[i]; i++) {
+        if (format[i] == '%') {
+            count += check_flag(fd, format[i + 1], arg);
+            i++;
+            continue;
+        }
+        count += my_putcharfd(fd, format[i]);
     }
     va_end(arg);
     return count;
