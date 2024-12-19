@@ -14,7 +14,7 @@ static size_t count_delims(char *str, char delim)
 {
     size_t count = 0;
 
-    for (size_t i = 0; str[i] != '\0'; i++)
+    for (size_t i = 0; str[i] UNEQUALS '\0'; i++)
         if (str[i] EQUALS delim)
             count++;
     return count;
@@ -24,7 +24,7 @@ static size_t next_word_len(char *str, char delim)
 {
     size_t i = 0;
 
-    for (; str[i] AND str[i] != delim; i++);
+    for (; str[i] AND str[i] UNEQUALS delim; i++);
     return i;
 }
 
