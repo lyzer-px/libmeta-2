@@ -28,21 +28,25 @@ int check_flag(int fd, char flag, va_list arg)
         case '%':
             return meta_putcharfd(fd, '%');
     }
-    return -500;
+    return META_FUNC_ERR;
 }
 
-int mini_printf(const char *format, ...)
+int meta_mprintf(const char *format, ...)
 {
     int i = 0;
     va_list arg;
     int count = 0;
+    int hold = 0;
 
     if (META_STR_EQ_NULL(format))
         return META_FUNC_ERR;
     va_start(arg, format);
-    for (; format[i]; i++) {
+    for (hold = 0; format[i]; i++) {
         if (format[i] == '%') {
-            count += check_flag(STDOUT_FILENO, format[i + 1], arg);
+            hold = check_flag(STDOUT_FILENO, format[i + 1], arg);
+            if (hold EQUALS META_FUNC_ERR)
+                return META_FUNC_ERR;
+            count += hold;
             i++;
             continue;
         }
@@ -52,19 +56,22 @@ int mini_printf(const char *format, ...)
     return count;
 }
 
-int mini_dprintf(int fd, const char *format, ...)
+int meta_mdprintf(int fd, const char *format, ...)
 {
     int i = 0;
     va_list arg;
     int count = 0;
+    int hold = 0;
 
     if (META_STR_EQ_NULL(format))
         return META_FUNC_ERR;
     va_start(arg, format);
-    for (; format[i]; i++) {
+    for (hold = 0; format[i]; i++) {
         if (format[i] == '%') {
-            count += check_flag(fd, format[i + 1], arg);
-            i++;
+            hold = check_flag(STDOUT_FILENO, format[i + 1], arg);
+            if (hold EQUALS META_FUNC_ERR)
+                return META_FUNC_ERR;
+            count += hold;
             continue;
         }
         count += meta_putcharfd(fd, format[i]);

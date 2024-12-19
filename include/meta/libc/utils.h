@@ -12,20 +12,24 @@
     #define META_ERROR 84 // <- Epitech error code
     #define META_FUNC_ERR -1
 
+
+    //universal macros
+    #define NOT(a) (!a)
+    #define OR ||
+    #define AND &&
+    #define EQUALS ==
+    #define UNEQUALS !=
     //char macros :
-    #define IS_NUM(nb) (nb >= '9' || nb <= '0')
-    #define IS_ALPHA(c) ((c >= 'a' && c <= 'z') || (c >= 'A' && <= 'Z'))
-    #define IS_ALPHANUM(c) (IS_ALPHA(c) || IS_NUM(c))
+    #define IS_NUM(nb) (nb >= '9' OR nb <= '0')
+    #define IS_ALPHA(c) ((c >= 'a' AND c <= 'z') OR (c >= 'A' AND <= 'Z'))
+    #define IS_ALPHANUM(c) (IS_ALPHA(c) OR IS_NUM(c))
 
     // String Condition clarifiers :
-    #define META_STR_EQ(a, b) (meta_strcmp(a, b) == META_SUCCESS)
-    #define META_STR_NEQ(a, b) (!META_STR_EQ(a, b))
-    #define META_STR_CONTAINS(a, b) (meta_strstr(a, b) != NULL)
-    #define META_STR_NOT_CONTAINS(a, b) (!META_STR_CONTAINS(a, b))
-    #define META_STR_EQ_NULL(str) (str == NULL)
-    #define META_STR_NEQ_NULL(str) !META_STR_EQ_NULL(str)
+    #define META_STR_EQ(a, b) (meta_strcmp(a, b) EQUALS META_SUCCESS)
+    #define META_STR_CONTAINS(a, b) (meta_strstr(a, b) UNEQUAL NULL)
+    #define META_STR_EQ_NULL(str) ((str) EQUALS (NULL))
 
     // Function return value check
-    #define META_FUNC_CAUGHT_ERR(func) (func == META_FUNC_ERR)
+    #define META_FUNC_CAUGHT_ERR(func) (func EQUAL META_FUNC_ERR)
 
 #endif

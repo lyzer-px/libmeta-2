@@ -6,9 +6,12 @@
 */
 
 #include <meta/libc/libc.h>
+#include <meta/libc/utils.h>
 
 char *meta_strncat(char *dest, const char *src, unsigned int n)
 {
+    if (META_STR_EQ_NULL(dest))
+        return NULL;
     dest = meta_strncpy(dest + meta_strlen(dest), src, n);
     return dest;
 }

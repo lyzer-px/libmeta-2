@@ -52,4 +52,9 @@ re: fclean all
 debug: CFLAGS += -g3
 debug: re
 
-.PHONY: all clean fclean re debug	\
+tests_run: CPPFLAGS += --coverage -lcriterion
+tests_run: $(OBJ)
+	$(CC) $(CFLAGS) -o unit_tests $(OBJ) unitests/unit_tests.c $(CPPFLAGS)
+	./unit_tests
+	$(RM) unit_tests
+.PHONY: all clean fclean re debug tests_run	\

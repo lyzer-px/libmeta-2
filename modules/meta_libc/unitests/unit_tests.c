@@ -10,7 +10,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "meta/libc.h"
+#include <meta/libc/libc.h>
+#include <meta/libc/utils.h>
 
 #define HELLO_WORLD_LEN 11
 
@@ -22,13 +23,13 @@ void redirect_all_std(void)
 
 Test(meta_mprintf, vals)
 {
-    cr_assert_eq(meta_strlen(NULL), -META_ERR);
+    cr_assert_eq(meta_strlen(NULL), META_ERROR);
     cr_assert_eq(meta_strlen("Hello World"), HELLO_WORLD_LEN);
 }
 
 Test(meta_atonbr, ret)
 {
-    //cr_assert_neq(meta_atoi("dfghkjkk+++++-42"), -META_ERR);
+    //cr_assert_neq(meta_atoi("dfghkjkk+++++-42"), META_ERROR);
     cr_assert_eq(meta_atoi("dfghkjkk+++++-42"), -42);
     cr_assert_eq(meta_atoi("dfghkjkk+++++42"), 42);
     cr_assert_eq(meta_atol("dfghkjkk+++++-30000000"), -30000000);

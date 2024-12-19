@@ -11,7 +11,7 @@ char *meta_strcpy(char *dest, const char *src)
 {
     size_t i = 0;
 
-    if(dest == NULL)
+    if (dest == NULL)
         return NULL;
     if (src == NULL)
         return dest;

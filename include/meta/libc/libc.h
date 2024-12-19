@@ -28,6 +28,7 @@ int meta_putnbr(int nb);
 int meta_putnbrfd(int fd, int nb);
 
 int meta_mprintf(const char *format, ...);
+int meta_mdprintf(int fd, const char *format, ...);
 
 char *meta_strcpy(char *dest, const char *src);
 char *meta_strncpy(char *dest, const char *src, unsigned int n);

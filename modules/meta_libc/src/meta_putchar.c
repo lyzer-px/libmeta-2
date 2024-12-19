@@ -12,7 +12,7 @@ ssize_t meta_putcharfd(int fd, char const c)
 {
     ssize_t ret = write(fd, &c, 1);
 
-    return ret < 0 ? -META_ERROR : ret;
+    return ret < 0 ? META_FUNC_ERR : ret;
 }
 
 ssize_t meta_putchar(char const c)
