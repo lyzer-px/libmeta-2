@@ -8,13 +8,14 @@
 #include <stdio.h>
 #include <stddef.h>
 #include <stdlib.h>
+#include <meta/libc/utils.h>
 
 static size_t count_delims(char *str, char delim)
 {
     size_t count = 0;
 
     for (size_t i = 0; str[i] != '\0'; i++)
-        if (str[i] == delim)
+        if (str[i] EQUALS delim)
             count++;
     return count;
 }
@@ -23,7 +24,7 @@ static size_t next_word_len(char *str, char delim)
 {
     size_t i = 0;
 
-    for (; str[i] && str[i] != delim; i++);
+    for (; str[i] AND str[i] != delim; i++);
     return i;
 }
 
@@ -42,13 +43,13 @@ char **meta_word_array_delim(char *str, char delim)
     size_t k = 0;
     size_t i = 0;
 
-    if (array == NULL)
+    if (array EQUALS NULL)
         return NULL;
     for (; i < size + 1; i++) {
         array[i] = malloc(sizeof(char) * (next_word_len(str + k, delim) + 1));
-        if (array[i] == NULL)
+        if (array[i] EQUALS NULL)
             return NULL;
-        for (; str[k] != delim && str[k]; j++) {
+        for (; str[k] UNEQUALS delim AND str[k]; j++) {
             array[i][j] = str[k];
             k++;
         }

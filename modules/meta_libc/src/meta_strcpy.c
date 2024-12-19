@@ -6,14 +6,15 @@
 */
 
 #include <stddef.h>
+#include <meta/libc/utils.h>
 
 char *meta_strcpy(char *dest, const char *src)
 {
     size_t i = 0;
 
-    if (dest == NULL)
+    if (dest EQUALS NULL)
         return NULL;
-    if (src == NULL)
+    if (src EQUALS NULL)
         return dest;
     for (; src[i]; i++)
         dest[i] = src[i];

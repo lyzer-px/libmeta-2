@@ -15,9 +15,9 @@ ssize_t meta_strncmp(char const *a, char const *b, unsigned int n)
     size_t i = 0;
     short int count = 0;
 
-    if (a == NULL || b == NULL)
+    if (a EQUALS NULL OR b EQUALS NULL)
         return META_ERROR;
-    for (; i < n && a[i] && b[i]; i++)
+    for (; i < n AND a[i] AND b[i]; i++)
         count += a[i] - b[i];
     return count;
 }

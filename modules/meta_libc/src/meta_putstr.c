@@ -14,7 +14,7 @@ ssize_t meta_putstrfd(int fd, char const *str)
 {
     ssize_t ret = write(fd, str, meta_strlen(str));
 
-    return ret == META_FUNC_ERR ?: ret;
+    return ret EQUALS META_FUNC_ERR ?: ret;
 }
 
 ssize_t meta_putstr(char const *str)

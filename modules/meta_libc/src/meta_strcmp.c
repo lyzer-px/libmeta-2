@@ -16,7 +16,7 @@ ssize_t meta_strcmp(char const *a, char const *b)
 
     if (META_STR_EQ_NULL(a) OR META_STR_EQ_NULL(b))
         return META_FUNC_ERR;
-    for (; a[i] && b[i]; i++)
+    for (; a[i] AND b[i]; i++)
         count += a[i] - b[i];
     return count;
 }

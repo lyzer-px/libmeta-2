@@ -12,7 +12,7 @@
 int meta_putnbrfd(int fd, int nb)
 {
     nb *= nb < 0 ? -meta_putchar('-') : 1;
-    if (nb / 10 == 0) {
+    if (nb / 10 EQUALS 0) {
         if (meta_putcharfd(fd, nb + '0') EQUALS META_FUNC_ERR)
             return META_FUNC_ERR;
         return META_SUCCESS;

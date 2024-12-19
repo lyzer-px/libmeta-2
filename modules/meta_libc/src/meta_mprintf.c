@@ -42,7 +42,7 @@ int meta_mprintf(const char *format, ...)
         return META_FUNC_ERR;
     va_start(arg, format);
     for (hold = 0; format[i]; i++) {
-        if (format[i] == '%') {
+        if (format[i] EQUALS '%') {
             hold = check_flag(STDOUT_FILENO, format[i + 1], arg);
             if (hold EQUALS META_FUNC_ERR)
                 return META_FUNC_ERR;
@@ -67,7 +67,7 @@ int meta_mdprintf(int fd, const char *format, ...)
         return META_FUNC_ERR;
     va_start(arg, format);
     for (hold = 0; format[i]; i++) {
-        if (format[i] == '%') {
+        if (format[i] EQUALS '%') {
             hold = check_flag(STDOUT_FILENO, format[i + 1], arg);
             if (hold EQUALS META_FUNC_ERR)
                 return META_FUNC_ERR;
