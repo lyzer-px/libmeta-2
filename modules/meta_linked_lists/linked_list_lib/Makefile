@@ -13,51 +13,40 @@ CP	?=	cp
 
 SRC 	=	src/nodes.c 					\
 
-NAME 	= 	../liblinked.a
+ROOT	=	../..
 
-LIB 	=	../
+NAME 	= 	$(ROOT)/libmeta.a
 
-LDLIBS 	= -lmy
+LDLIBS 	= -l
 
-LDFLAGS = -L${LIB} ${LDLIBS}
+LDFLAGS = -L${ROOT} ${LDLIBS}
 
-CFLAGS 	+= 	-Wall -Wextra -pedantic
+CFLAGS 	+= 	-Wall -Wextra -pedantic -std=c2x
 
-CPPFLAGS = 	-iquote $(VPATH) -iquote $(LIB)/include
+VPATH	=	$(ROOT)/include
 
 OBJ		 = 	$(SRC:.c=.o)
 
-VPATH	=	include
+CPPFLAGS = 	-isystem $(VPATH)
 
-ROOT	=	.
+CFLAGS += -Wall -Wextra -pedantic -std=c2x
 
-ROOTVPATH	=	$(ROOT)/$(VPATH)
-
-CFLAGS += -Wall -Wextra -pedantic
-
-CPPFLAGS = -iquote $(ROOTVPATH) -iquote $(VPATH)
+CPPFLAGS = -isystem $(VPATH)
 
 all: $(NAME)
-	$(CP) $(VPATH)/linked_lists.h $(ROOTVPATH)/
 
-dependencies:
-	$(MAKE) -C $(LIB)/my ROOT=$(ROOT)
-
-$(NAME): dependencies $(OBJ)
-	$(AR) rc $(NAME) $(OBJ)
+$(NAME): $(OBJ)
+	$(AR) cq $(NAME) $(OBJ)
 
 clean:
-	$(MAKE) clean -C $(LIB)/my
 	$(RM) $(OBJ)
 
 fclean: clean
-	$(MAKE) fclean -C $(LIB)/my
 	$(RM) $(NAME)
 
 re: fclean all
 
 debug: CFLAGS += -g3
 debug: re
-	$(MAKE) debug -C $(LIB)/my ROOT=$(ROOT)
 
 .PHONY: all clean fclean re debug

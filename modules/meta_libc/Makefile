@@ -31,7 +31,7 @@ NAME 	= 	$(ROOT)/libmeta.a
 
 VPATH 	= 	$(ROOT)/include/
 
-CFLAGS 	+= 	-Wall -Wextra -pedantic
+CFLAGS 	+= 	-Wall -Wextra -pedantic -std=c2x
 
 CPPFLAGS = 	-isystem $(VPATH)
 
@@ -40,7 +40,8 @@ OBJ		 = 	$(SRC:.c=.o)
 all:	$(NAME)
 
 $(NAME): $(OBJ)
-	$(AR) -rcs $(NAME) $(OBJ)
+	$(AR) cq $(NAME) $(OBJ)
+
 clean:
 	$(RM) $(OBJ)
 
@@ -57,4 +58,5 @@ tests_run: $(OBJ)
 	$(CC) $(CFLAGS) -o unit_tests $(OBJ) unitests/unit_tests.c $(CPPFLAGS)
 	./unit_tests
 	$(RM) unit_tests
+
 .PHONY: all clean fclean re debug tests_run	\

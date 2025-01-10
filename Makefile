@@ -9,52 +9,50 @@ AR 	?= ar
 
 CC 	?= gcc
 
-SRC 	=	src/main.c 					\
-			src/meta_top.c				\
-			src/get_info.c				\
-			src/process.c				\
-			src/tools.c
-
-
 MODULES	= 	modules
 
 LIBC 	=	meta_libc
 
-LINKED	= meta_linked_lists
+LINKED	= meta_links
 
-NAME 	= 	meta_top
+CSFML = meta_csfml
+
+NAME 	= 	libmeta.a
 
 VPATH 	= 	include
 
-CFLAGS 	+= 	-Wall -Wextra -pedantic
+CFLAGS 	+= 	-Wall -Wextra -pedantic -std=c2x
 
 CPPFLAGS = 	-isystem $(VPATH)
-
-OBJ		 = 	$(SRC:.c=.o)
 
 all:	$(NAME)
 
 $(NAME): $(OBJ)
 	$(MAKE) -C $(MODULES)/$(LIBC)
 	$(MAKE) -C $(MODULES)/$(LINKED)
-	$(AR) -rcs $(NAME) $(OBJ)
+	$(MAKE) -C $(MODULES)/$(CSFML)
+	$(AR) rcs $(NAME) $(OBJ)
 clean:
 	$(MAKE) clean -C $(MODULES)/$(LIBC)
 	$(MAKE) clean -C $(MODULES)/$(LINKED)
+	$(MAKE) clean -C $(MODULES)/$(CSFML)
 	$(RM) $(OBJ)
 
 fclean: clean
 	$(MAKE) fclean -C $(MODULES)/$(LIBC)
 	$(MAKE) fclean -C $(MODULES)/$(LINKED)
+	$(MAKE) fclean -C $(MODULES)/$(CSFML)
 	$(RM) $(NAME)
 
 re: fclean all
-	$(MAKE) fclean -C $(MODULES)/$(LIBC)
-	$(MAKE) fclean -C $(MODULES)/$(LINKED)
+	$(MAKE) re -C $(MODULES)/$(LIBC)
+	$(MAKE) re -C $(MODULES)/$(LINKED)
+	$(MAKE) re -C $(MODULES)/$(CSFML)
 
 debug: CFLAGS += -g3
 debug: re
 	$(MAKE) debug -C $(MODULES)/$(LIBC)
 	$(MAKE) debug -C $(MODULES)/$(LINKED)
+	$(MAKE) debug -C $(MODULES)/$(CSFML)
 
-.PHONY: all clean fclean re debug
+.PHONY: all clean fclean re debug \

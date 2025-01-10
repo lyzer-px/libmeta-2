@@ -12,7 +12,6 @@
     #define META_ERROR 84 // <- Epitech error code
     #define META_FUNC_ERR -1
 
-
     //universal macros
     #define NOT(a) (!a)
     #define OR ||

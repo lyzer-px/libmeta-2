@@ -12,7 +12,6 @@ CC ?= gcc
 CP	?=	cp
 
 SRC 	=	src/nodes.c 					\
-			src/operation.c
 
 ROOT	= 	../..
 
@@ -31,7 +30,7 @@ OBJ		 = 	$(SRC:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(AR) rc $(NAME) $(OBJ)
+	$(AR) cq $(NAME) $(OBJ)
 
 clean:
 	$(RM) $(OBJ)
