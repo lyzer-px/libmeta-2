@@ -7,9 +7,7 @@
 
 #include <criterion/criterion.h>
 #include <criterion/redirect.h>
-#include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 #include <meta/libc/libc.h>
 #include <meta/libc/utils.h>
 
@@ -23,13 +21,12 @@ void redirect_all_std(void)
 
 Test(meta_mprintf, vals)
 {
-    cr_assert_eq(meta_strlen(nullptr), META_ERROR);
+    cr_assert_eq(meta_strlen(NULL), META_ERROR);
     cr_assert_eq(meta_strlen("Hello World"), HELLO_WORLD_LEN);
 }
 
 Test(meta_atonbr, ret)
 {
-    //cr_assert_neq(meta_atoi("dfghkjkk+++++-42"), META_ERROR);
     cr_assert_eq(meta_atoi("dfghkjkk+++++-42"), -42);
     cr_assert_eq(meta_atoi("dfghkjkk+++++42"), 42);
     cr_assert_eq(meta_atol("dfghkjkk+++++-30000000"), -30000000);
@@ -92,31 +89,31 @@ Test(meta_putstr, print, .init=redirect_all_std)
     cr_assert_stdout_eq_str("Hey, I'm 19");
 }
 
-Test(meta_strcpy, nullptr)
+Test(meta_strcpy, NULL)
 {
     char *buff = malloc(30);
 
     buff = meta_strcpy(buff, "Hello");
-    cr_assert_not_nullptr(buff);
+    cr_assert_not_null(buff);
     cr_assert_str_eq(buff, "Hello");
-    buff = meta_strcpy(nullptr, "Hello");
-    cr_assert_nullptr(buff);
-    buff = meta_strcpy(buff, nullptr);
-    cr_assert_nullptr(buff);
+    buff = meta_strcpy(NULL, "Hello");
+    cr_assert_null(buff);
+    buff = meta_strcpy(buff, NULL);
+    cr_assert_null(buff);
     free(buff);
 }
 
-Test(meta_strncpy, nullptr)
+Test(meta_strncpy, NULL)
 {
     char *buff = malloc(30);
 
     buff = meta_strncpy(buff, "Hello", 3);
-    cr_assert_not_nullptr(buff);
+    cr_assert_not_null(buff);
     cr_assert_str_eq(buff, "Hel");
-    buff = meta_strncpy(nullptr, "Hello", 3);
-    cr_assert_nullptr(buff);
-    buff = meta_strncpy(buff, nullptr, 3);
-    cr_assert_nullptr(buff);
+    buff = meta_strncpy(NULL, "Hello", 3);
+    cr_assert_null(buff);
+    buff = meta_strncpy(buff, NULL, 3);
+    cr_assert_null(buff);
     free(buff);
 }
 
@@ -142,7 +139,7 @@ Test(meta_strndup, print)
 {
     char *str = meta_strndup("Hello World", 5);
 
-    cr_assert_nullptr(meta_strndup(nullptr, 5));
+    cr_assert_null(meta_strndup(NULL, 5));
     cr_assert_str_eq(str, "Hello");
     free(str);
 }
@@ -183,13 +180,13 @@ Test(meta_strstr, print)
     cr_assert_str_eq(meta_strstr("Hello World", "Wo"), "World");
 }
 
-Test(meta_strstr, nullptr)
+Test(meta_strstr, NULL)
 {
-    cr_assert_nullptr(meta_strstr("Hello World", "YA"));
+    cr_assert_null(meta_strstr("Hello World", "YA"));
 }
 
-Test(meta_strndup, nullptr)
+Test(meta_strndup, NULL)
 {
-    cr_assert_not_nullptr(meta_strndup("Hello World", 1));
-    cr_assert_nullptr(meta_strndup(nullptr, 1));
+    cr_assert_not_null(meta_strndup("Hello World", 1));
+    cr_assert_null(meta_strndup(NULL, 1));
 }
