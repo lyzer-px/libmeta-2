@@ -5,9 +5,6 @@
 ** unit_tests.c
 */
 
-#ifdef __GNUC__
-    #define nullptr ((void *)0)
-#endif
 #include <criterion/criterion.h>
 #include <criterion/internal/assert.h>
 #include <meta/CSFML/wrapper.h>

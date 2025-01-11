@@ -8,10 +8,6 @@
 #ifndef META_CSFML_H
     #define META_CSFML_H
 
-    #ifndef nullptr
-        #define nullptr ((void*)0)
-    #endif
-
     #include <SFML/Graphics.h>
     #include <SFML/Graphics/RenderWindow.h>
     #include <SFML/Graphics/Types.h>
