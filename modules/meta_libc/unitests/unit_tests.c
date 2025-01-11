@@ -6,6 +6,7 @@
 */
 
 #include <criterion/criterion.h>
+#include <criterion/internal/test.h>
 #include <criterion/redirect.h>
 #include <stdlib.h>
 #include <meta/libc/libc.h>
