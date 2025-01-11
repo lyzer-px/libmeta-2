@@ -19,6 +19,8 @@ SRC 	=	src/generic/destroy.c			\
 			src/destructors/funptr5.c		\
 			src/destructors/funptr6.c
 
+CR = --coverage -lcriterion
+
 ROOT = ../..
 
 NAME = $(ROOT)/libmeta.a
@@ -52,7 +54,7 @@ debug: CFLAGS += -g3
 debug: re
 
 tests_run: all
-	$(CC) $(LDFLAGS) -o unit_tests $(SRC) tests/unit_tests.c $(CPPFLAGS) --coverage -lcriterion
+	$(CC) $(LDFLAGS) -o unit_tests $(SRC) tests/unit_tests.c $(CPPFLAGS) $(CR)
 	./unit_tests
 	gcovr --exclude tests --txt-metric branch
 
