@@ -5,6 +5,7 @@
 ** destructor.c
 */
 
+#include <stdlib.h>
 #include <SFML/Graphics/CircleShape.h>
 #include <SFML/Graphics/ConvexShape.h>
 #include <SFML/Graphics/Font.h>
@@ -14,28 +15,34 @@
 #include <SFML/Graphics/RenderWindow.h>
 #include <SFML/Window/Context.h>
 #include <SFML/Window/Cursor.h>
+#include <meta/CSFML/objects.h>
 
-void destroy_circleshape(void *data)
+void destroy_circleshape(object_t *object)
 {
-    sfCircleShape_destroy((sfCircleShape *)data);
+    sfCircleShape_destroy((sfCircleShape *)object->item);
+    free(object);
 }
 
-void destroy_context(void *data)
+void destroy_context(object_t *object)
 {
-    sfContext_destroy((sfContext *)data);
+    sfContext_destroy((sfContext *)object->item);
+    free(object);
 }
 
-void destroy_convexshape(void *data)
+void destroy_convexshape(object_t *object)
 {
-    sfConvexShape_destroy((sfConvexShape *)data);
+    sfConvexShape_destroy((sfConvexShape *)object->item);
+    free(object);
 }
 
-void destroy_cursor(void *data)
+void destroy_cursor(object_t *object)
 {
-    sfCursor_destroy((sfCursor *)data);
+    sfCursor_destroy((sfCursor *)object->item);
+    free(object);
 }
 
-void destroy_font(void *data)
+void destroy_font(object_t *object)
 {
-    sfFont_destroy((sfFont *)data);
+    sfFont_destroy((sfFont *)object->item);
+    free(object);
 }

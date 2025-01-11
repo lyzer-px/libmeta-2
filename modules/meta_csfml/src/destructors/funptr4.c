@@ -9,28 +9,35 @@
 #include <SFML/Graphics/Sprite.h>
 #include <SFML/Graphics/Types.h>
 #include <SFML/System/Clock.h>
+#include <meta/CSFML/objects.h>
+#include <stdlib.h>
 
-void destroy_renderwindow(void *data)
+void destroy_renderwindow(object_t *object)
 {
-    sfRenderWindow_destroy((sfRenderWindow *)data);
+    sfRenderWindow_destroy((sfRenderWindow *)object->item);
+    free(object);
 }
 
-void destroy_sfwindow(void *data)
+void destroy_sfwindow(object_t *object)
 {
-    sfWindow_destroy((sfWindow *)data);
+    sfWindow_destroy((sfWindow *)object->item);
+    free(object);
 }
 
-void destroy_sprite(void *data)
+void destroy_sprite(object_t *object)
 {
-    sfSprite_destroy((sfSprite *)data);
+    sfSprite_destroy((sfSprite *)object->item);
+    free(object);
 }
 
-void destructor_texture(void *data)
+void destructor_texture(object_t *object)
 {
-    sfSprite_destroy((sfSprite *)data);
+    sfSprite_destroy((sfSprite *)object->item);
+    free(object);
 }
 
-void destroy_clock(void *data)
+void destroy_clock(object_t *object)
 {
-    sfClock_destroy((sfClock *) data);
+    sfClock_destroy((sfClock *) object->item);
+    free(object);
 }

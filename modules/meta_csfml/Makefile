@@ -51,4 +51,9 @@ re: fclean all
 debug: CFLAGS += -g3
 debug: re
 
+tests_run: all
+	$(CC) $(LDFLAGS) -o unit_tests $(SRC) tests/unit_tests.c $(CPPFLAGS) --coverage -lcriterion
+	./unit_tests
+	gcovr --exclude tests --txt-metric branch
+
 .PHONY: all clean fclean re debug \

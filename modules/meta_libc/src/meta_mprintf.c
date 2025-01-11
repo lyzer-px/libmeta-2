@@ -44,8 +44,6 @@ int meta_mprintf(const char *format, ...)
     for (hold = 0; format[i]; i++) {
         if (format[i] EQUALS '%') {
             hold = check_flag(STDOUT_FILENO, format[i + 1], arg);
-            if (hold EQUALS META_FUNC_ERR)
-                return META_FUNC_ERR;
             count += hold;
             i++;
             continue;
@@ -69,8 +67,6 @@ int meta_mdprintf(int fd, const char *format, ...)
     for (hold = 0; format[i]; i++) {
         if (format[i] EQUALS '%') {
             hold = check_flag(STDOUT_FILENO, format[i + 1], arg);
-            if (hold EQUALS META_FUNC_ERR)
-                return META_FUNC_ERR;
             count += hold;
             continue;
         }

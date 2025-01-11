@@ -18,18 +18,23 @@
 #include <SFML/Graphics/RenderWindow.h>
 #include <SFML/Window/Context.h>
 #include <SFML/Window/Cursor.h>
+#include <meta/CSFML/objects.h>
+#include <stdlib.h>
 
-void destroy_image(void *data)
+void destroy_image(object_t *object)
 {
-    sfImage_destroy((sfImage *)data);
+    sfImage_destroy((sfImage *)object->item);
+    free(object);
 }
 
-void destroy_rectangleshape(void *data)
+void destroy_rectangleshape(object_t *object)
 {
-    sfRectangleShape_destroy((sfRectangleShape *)data);
+    sfRectangleShape_destroy((sfRectangleShape *)object->item);
+    free(object);
 }
 
-void destroy_music(void *data)
+void destroy_music(object_t *object)
 {
-    sfMusic_destroy((sfMusic *)data);
+    sfMusic_destroy((sfMusic *)object->item);
+    free(object);
 }

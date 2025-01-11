@@ -7,6 +7,7 @@
 
 #ifndef META_UTILS_H
     #define META_UTILS_H
+    #include <iso646.h>
 
     #define META_SUCCESS 0
     #define META_ERROR 84 // <- Epitech error code
@@ -25,8 +26,8 @@
 
     // String Condition clarifiers :
     #define META_STR_EQ(a, b) (meta_strcmp(a, b) EQUALS META_SUCCESS)
-    #define META_STR_CONTAINS(a, b) (meta_strstr(a, b) UNEQUAL nullptr)
-    #define META_STR_EQ_NULL(str) ((str) EQUALS (nullptr))
+    #define META_STR_CONTAINS(a, b) (meta_strstr(a, b) UNEQUAL NULL)
+    #define META_STR_EQ_NULL(str) ((str) EQUALS (NULL))
 
     // Function return value check
     #define META_FUNC_CAUGHT_ERR(func) (func EQUAL META_FUNC_ERR)

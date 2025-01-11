@@ -15,7 +15,8 @@
 
 void *create_renderwindow(void)
 {
-    return sfRenderWindow_create(BASE_MODE, TITLE, sfResize | sfClose, nullptr);
+    return
+    sfRenderWindow_create(BASE_MODE, TITLE, sfResize | sfClose, nullptr);
 }
 
 void *create_sprite(void)

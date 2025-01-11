@@ -13,15 +13,13 @@ CP	?=	cp
 
 SRC 	=	src/nodes.c 					\
 
-ROOT	= 	../..
+ROOT	=	../..
 
 NAME 	= 	$(ROOT)/libmeta.a
 
-LDLIBS 	= -lmeta
+VPATH 	= 	$(ROOT)/include/
 
-VPATH	=	$(ROOT)/include/
-
-LDFLAGS = -L$(ROOT) ${LDLIBS}
+CFLAGS 	+= 	-Wall -Wextra -pedantic -std=c2x
 
 CPPFLAGS = 	-isystem $(VPATH)
 

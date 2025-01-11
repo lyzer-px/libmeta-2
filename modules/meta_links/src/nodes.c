@@ -6,17 +6,17 @@
 */
 
 #include <stddef.h>
-#include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
-#include <meta/libc/libc.h>
 #include <meta/links/links.h>
+#include <meta/libc/libc.h>
+#include <meta/libc/utils.h>
 
 meta_list_t *meta_node_create(void)
 {
     meta_list_t *node = malloc(sizeof(meta_list_t));
 
-    if (!node)
+    if (node EQUALS nullptr)
         return nullptr;
     node->data = nullptr;
     node->next = nullptr;
@@ -29,7 +29,7 @@ meta_list_t *meta_node_push(void *data, meta_list_t *head)
 {
     meta_list_t *node = meta_node_create();
 
-    if (!node)
+    if (node EQUALS nullptr)
         return nullptr;
     node->data = data;
     node->next = head;
@@ -42,7 +42,7 @@ meta_list_t *meta_node_delete(meta_list_t *head, unsigned int index)
 {
     meta_list_t *current = head;
 
-    for (; current && current->next && current->index != index;
+    for (; current AND current->next AND current->index != index;
     current = current->next);
     current->prev->next = current->next;
     current->next->prev = current->prev;

@@ -6,8 +6,18 @@
 */
 
 #include <meta/CSFML/objects.h>
+#include <meta/libc/utils.h>
+#include <stddef.h>
 
-void generic_destroy(void *data, int type_id)
+static void generic_destroy(object_t *object)
 {
-    METHODS[type_id].destructor(data);
+    FOREACH(METHODS) {
+        if (METHODS[i].type EQUALS object->tag)
+            METHODS[i].destructor(object);
+    }
+}
+
+void meta_destroy(object_t *object)
+{
+    generic_destroy(object);
 }

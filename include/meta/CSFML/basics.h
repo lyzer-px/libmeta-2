@@ -7,6 +7,11 @@
 
 #ifndef META_CSFML_H
     #define META_CSFML_H
+
+    #ifndef nullptr
+        #define nullptr ((void*)0)
+    #endif
+
     #include <SFML/Graphics.h>
     #include <SFML/Graphics/RenderWindow.h>
     #include <SFML/Graphics/Types.h>
@@ -24,7 +29,7 @@
 
 
 [[maybe_unused]] static const sfVideoMode BASE_MODE = {SCREEN_WIDTH,
-SCREEN_WIDTH, BIT_PX};
+    SCREEN_WIDTH, BIT_PX};
 
 [[maybe_unused]] static const char *TITLE = "my_window";
 #endif
