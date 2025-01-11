@@ -25,8 +25,8 @@
 
     // String Condition clarifiers :
     #define META_STR_EQ(a, b) (meta_strcmp(a, b) EQUALS META_SUCCESS)
-    #define META_STR_CONTAINS(a, b) (meta_strstr(a, b) UNEQUAL NULL)
-    #define META_STR_EQ_NULL(str) ((str) EQUALS (NULL))
+    #define META_STR_CONTAINS(a, b) (meta_strstr(a, b) UNEQUAL nullptr)
+    #define META_STR_EQ_NULL(str) ((str) EQUALS (nullptr))
 
     // Function return value check
     #define META_FUNC_CAUGHT_ERR(func) (func EQUAL META_FUNC_ERR)

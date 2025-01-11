@@ -11,7 +11,6 @@
 #include <SFML/Graphics/Texture.h>
 #include <SFML/System/Clock.h>
 #include <SFML/Window/VideoMode.h>
-#include <SFML/Window/WindowBase.h>
 #include <meta/CSFML/basics.h>
 
 void *create_renderwindow(void)

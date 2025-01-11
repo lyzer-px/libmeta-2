@@ -43,18 +43,18 @@ char **meta_word_array_delim(char *str, char delim)
     size_t k = 0;
     size_t i = 0;
 
-    if (array EQUALS NULL)
-        return NULL;
+    if (array EQUALS nullptr)
+        return nullptr;
     for (; i < size + 1; i++) {
         array[i] = malloc(sizeof(char) * (next_word_len(str + k, delim) + 1));
-        if (array[i] EQUALS NULL)
-            return NULL;
+        if (array[i] EQUALS nullptr)
+            return nullptr;
         for (; str[k] UNEQUALS delim AND str[k]; j++) {
             array[i][j] = str[k];
             k++;
         }
         end_string(&k, &(array[i][j]), &j);
     }
-    array[size + 1] = NULL;
+    array[size + 1] = nullptr;
     return array;
 }

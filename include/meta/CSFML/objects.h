@@ -91,8 +91,9 @@ typedef struct method_s {
     {SFRECTANGLESHAPE, &destroy_rectangleshape, &create_rectangleshape}};
 
 typedef struct object_s {
+
     void *data;
     method_t methods;
-}object_t;
+} object_t;
 
 #endif

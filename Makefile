@@ -45,9 +45,6 @@ fclean: clean
 	$(RM) $(NAME)
 
 re: fclean all
-	$(MAKE) re -C $(MODULES)/$(LIBC)
-	$(MAKE) re -C $(MODULES)/$(LINKED)
-	$(MAKE) re -C $(MODULES)/$(CSFML)
 
 debug: CFLAGS += -g3
 debug: re

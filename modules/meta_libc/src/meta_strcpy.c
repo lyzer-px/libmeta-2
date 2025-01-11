@@ -12,9 +12,9 @@ char *meta_strcpy(char *dest, const char *src)
 {
     size_t i = 0;
 
-    if (dest EQUALS NULL)
-        return NULL;
-    if (src EQUALS NULL)
+    if (dest EQUALS nullptr)
+        return nullptr;
+    if (src EQUALS nullptr)
         return dest;
     for (; src[i]; i++)
         dest[i] = src[i];

@@ -17,10 +17,10 @@ meta_list_t *meta_node_create(void)
     meta_list_t *node = malloc(sizeof(meta_list_t));
 
     if (!node)
-        return NULL;
-    node->data = NULL;
-    node->next = NULL;
-    node->prev = NULL;
+        return nullptr;
+    node->data = nullptr;
+    node->next = nullptr;
+    node->prev = nullptr;
     node->index = -1;
     return node;
 }
@@ -30,7 +30,7 @@ meta_list_t *meta_node_push(void *data, meta_list_t *head)
     meta_list_t *node = meta_node_create();
 
     if (!node)
-        return NULL;
+        return nullptr;
     node->data = data;
     node->next = head;
     head->prev = node;
@@ -61,9 +61,9 @@ void meta_list_destroy(meta_list_t *head)
 {
     meta_list_t *current = head->next;
 
-    for (; current != NULL; current = current->next) {
+    for (; current != nullptr; current = current->next) {
         free(current->prev);
-        if (current->next != NULL)
+        if (current->next != nullptr)
             continue;
         free(current);
         break;

@@ -14,6 +14,6 @@ char *meta_strndup(char const *src, unsigned int n)
    char *dest = malloc(sizeof(char) * meta_strlen(src) + 1);
 
     if (META_STR_EQ_NULL(dest) OR META_STR_EQ_NULL(src))
-        return NULL;
+        return nullptr;
     return meta_strncpy(dest, src, n);
 }
