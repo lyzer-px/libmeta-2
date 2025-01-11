@@ -9,11 +9,11 @@
 #include <meta/libc/libc.h>
 #include <meta/libc/utils.h>
 
-char *meta_strdup(char const *src)
+char *meta_strndup(char const *src, unsigned int n)
 {
     char *dest = malloc(sizeof(char) * meta_strlen(src) + 1);
 
-    if (dest EQUALS nullptr OR src EQUALS nullptr)
+    if (META_STR_EQ_NULL(dest) OR META_STR_EQ_NULL(src))
         return nullptr;
-    return meta_strcpy(dest, src);
+    return meta_strncpy(dest, src, n);
 }

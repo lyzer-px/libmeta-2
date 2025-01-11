@@ -1,14 +1,21 @@
 /*
 ** EPITECH PROJECT, 2024
-** minishell_meta_string
+** meta_libc
 ** File description:
-** main.c
+** meta_putchar.c
 */
 
 #include <unistd.h>
+#include <meta/libc/utils.h>
 
-int meta_putchar(char c)
+ssize_t meta_putcharfd(int fd, char const c)
 {
-    write(1, &c, 1);
-    return 0;
+    ssize_t ret = write(fd, &c, 1);
+
+    return ret < 0 ? META_FUNC_ERR : ret;
+}
+
+ssize_t meta_putchar(char const c)
+{
+    return meta_putcharfd(STDOUT_FILENO, c);
 }

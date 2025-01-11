@@ -5,41 +5,40 @@
 ## FILEMAKE
 ##
 
-CC ?= gcc
-
 AR ?= ar
 
-RM = rm
+CC ?= gcc
 
-SRC 	=	src/meta_linked_lists.c				\
+CP	?=	cp
 
-NAME = ../../libmeta.a
+SRC 	=	src/nodes.c 					\
 
-MODULE_NAME = ./meta_links.a
+ROOT	=	../..
 
-VPATH = ./headers
+NAME 	= 	$(ROOT)/libmeta.a
 
-CPPFLAGS = -iquote $(VPATH) -Wall -Wextra -pedantic
+VPATH 	= 	$(ROOT)/include/
 
-OBJ	= $(SRC:.c=.o)
+CFLAGS 	+= 	-Wall -Wextra -pedantic -std=c2x
 
-all:	$(NAME)
+CPPFLAGS = 	-isystem $(VPATH)
+
+OBJ		 = 	$(SRC:.c=.o)
+
+all: $(NAME)
 
 $(NAME): $(OBJ)
 	$(AR) cq $(NAME) $(OBJ)
 
 clean:
-	$(RM) -f $(OBJ)
+	$(RM) $(OBJ)
 
 fclean: clean
-	$(RM) -f $(NAME)
+	$(RM) $(NAME)
 
 re: fclean all
-
-standalone: NAME = ../../libmeta_links.a
-standalone: all
 
 debug: CFLAGS += -g3
 debug: re
 
-.PHONY: all clean fclean module re debug \
+.PHONY: all clean fclean re debug

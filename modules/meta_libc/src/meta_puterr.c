@@ -1,15 +1,17 @@
 /*
 ** EPITECH PROJECT, 2024
-** minishell_meta_string
+** meta_libc
 ** File description:
-** main.c
+** meta_puterr.c
 */
 
 #include <unistd.h>
-#include "meta_libc.h"
+#include <meta/libc/libc.h>
+#include <meta/libc/utils.h>
 
-int meta_puterr(char const *str)
+ssize_t meta_puterr(char const *str)
 {
-    write(2, str, meta_strlen(str));
-    return 0;
+    ssize_t ret = write(STDERR_FILENO, str, meta_strlen(str));
+
+    return ret EQUALS META_FUNC_ERR ?: ret;
 }

@@ -1,17 +1,22 @@
 /*
 ** EPITECH PROJECT, 2024
-** MY_PROJECT
+** meta_libc [WSL: Ubuntu]
 ** File description:
-** DESCRIPTION
+** meta_strcpy.c
 */
 
-#include "meta_libc.h"
+#include <meta/libc/utils.h>
+#include <stddef.h>
 
-char *my_strncpy(char *dest, char *src, int n)
+char *meta_strncpy(char *dest, const char *src, unsigned int n)
 {
-    int i = 0;
+    size_t i = 0;
 
-    for (; src[i] != '\0' && i <= n; i++)
+    if (dest EQUALS nullptr)
+        return nullptr;
+    if (src EQUALS nullptr)
+        return dest;
+    for (; src[i] AND i < n; i++)
         dest[i] = src[i];
     dest[i] = '\0';
     return dest;

@@ -9,33 +9,39 @@ CC ?= gcc
 
 AR ?= ar
 
-RM = rm
+RM ?= rm
 
-SRC 	=	src/meta_assets.c 							\
-			src/meta_detection.c						\
-			src/meta_events.c							\
-			src/meta_inputs.c							\
-			src/meta_window.c							\
+SRC 	=	src/generic/destroy.c			\
+			src/generic/create.c			\
+			src/constructors/funptr1.c		\
+			src/constructors/funptr2.c		\
+			src/destructors/funptr4.c		\
+			src/destructors/funptr5.c		\
+			src/destructors/funptr6.c
 
+CR = --coverage -lcriterion
 
-NAME = ../../libmeta.a
+ROOT = ../..
 
-VPATH = ./headers
+NAME = $(ROOT)/libmeta.a
 
-WPATH = ${VPATH}/subheaders
+VPATH = $(ROOT)/include
 
-LDFALGS = L. $(LDLIBS)
+LDLIBS = -lcsfml-system -lcsfml-window -lcsfml-graphics -lcsfml-audio
 
-LDLIBS = -lcsfml-system -lcsfml-graphics -lcsfml-window
+LDFLAGS = -L. ${LDLIBS}
 
-CPPFLAGS = -iquote $(VPATH) -iquote $(WPATH) -Wall -Wextra -pedantic
+CFLAGS += -Wall -Wextra -pedantic -std=c2x
+
+CPPFLAGS = -isystem $(VPATH)
 
 OBJ	= $(SRC:.c=.o)
 
 all:	$(NAME)
 
 $(NAME): $(OBJ)
-	ar -cq $(NAME) $(OBJ)
+	$(AR) cq $(NAME) $(OBJ)
+
 clean:
 	$(RM) -f $(OBJ)
 
@@ -44,10 +50,12 @@ fclean: clean
 
 re: fclean all
 
-standalone: NAME = ../../libmeta_csfml.a
-standalone: all
-
 debug: CFLAGS += -g3
 debug: re
+
+tests_run: all
+	$(CC) $(LDFLAGS) -o unit_tests $(SRC) tests/unit_tests.c $(CPPFLAGS) $(CR)
+	./unit_tests
+	gcovr --exclude tests --txt-metric branch
 
 .PHONY: all clean fclean re debug \

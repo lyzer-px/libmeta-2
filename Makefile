@@ -1,66 +1,55 @@
 ##
 ## EPITECH PROJECT, 2024
-## libmeta
+## MAKEFILE
 ## File description:
-## Makefile
+## FILEMAKE
 ##
 
-CC ?= gcc
+AR 	?= ar
 
-AR ?= ar
+CC 	?= gcc
 
-RM = rm
+MODULES	= 	modules
 
-SRC 	=	.hidden/easter_egg.c			\
+LIBC 	=	meta_libc
 
-NAME = libmeta.a
+LINKED	= meta_links
 
-VPATH = ./headers
+CSFML = meta_csfml
 
-LDFLAGS = -L./libraries ${LDLIBS}
+NAME 	= 	libmeta.a
 
-CPPFLAGS = -iquote $(VPATH) -Wall -Wextra -pedantic
+VPATH 	= 	include
 
-OBJ	= $(SRC:.c=.o)
+CFLAGS 	+= 	-Wall -Wextra -pedantic -std=c2x
+
+CPPFLAGS = 	-isystem $(VPATH)
 
 all:	$(NAME)
 
 $(NAME): $(OBJ)
-	$(MAKE) -C modules/meta_libc
-	$(MAKE) -C modules/meta_links
-	$(MAKE) -C modules/meta_ranks
-	$(MAKE) -C modules/meta_csfml
-	$(AR) -rcs $(NAME) $(OBJ)
-
+	$(MAKE) -C $(MODULES)/$(LIBC)
+	$(MAKE) -C $(MODULES)/$(LINKED)
+	$(MAKE) -C $(MODULES)/$(CSFML)
+	$(AR) rcs $(NAME) $(OBJ)
 clean:
-	$(MAKE) clean -C modules/meta_libc
-	$(MAKE) clean -C modules/meta_links
-	$(MAKE) clean -C modules/meta_ranks
-	$(MAKE) clean -C modules/meta_csfml
-	$(RM) -f $(OBJ)
+	$(MAKE) clean -C $(MODULES)/$(LIBC)
+	$(MAKE) clean -C $(MODULES)/$(LINKED)
+	$(MAKE) clean -C $(MODULES)/$(CSFML)
+	$(RM) $(OBJ)
 
 fclean: clean
-	$(MAKE) fclean -C modules/meta_libc
-	$(MAKE) fclean -C modules/meta_links
-	$(MAKE) fclean -C modules/meta_ranks
-	$(MAKE) fclean -C modules/meta_csfml
-	$(RM) -f $(NAME)
+	$(MAKE) fclean -C $(MODULES)/$(LIBC)
+	$(MAKE) fclean -C $(MODULES)/$(LINKED)
+	$(MAKE) fclean -C $(MODULES)/$(CSFML)
+	$(RM) $(NAME)
 
 re: fclean all
 
-ranks :
-	$(MAKE) standalone -C modules/meta_ranks
-
-csfml :
-	$(MAKE) standalone -C modules/meta_csfml
-
-libc :
-	$(MAKE) standalone -C modules/meta_libc
-
-links :
-	$(MAKE) standalone -C modules/meta_links
-
 debug: CFLAGS += -g3
 debug: re
+	$(MAKE) debug -C $(MODULES)/$(LIBC)
+	$(MAKE) debug -C $(MODULES)/$(LINKED)
+	$(MAKE) debug -C $(MODULES)/$(CSFML)
 
 .PHONY: all clean fclean re debug \

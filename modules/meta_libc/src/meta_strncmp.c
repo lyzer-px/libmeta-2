@@ -1,17 +1,23 @@
 /*
 ** EPITECH PROJECT, 2024
-** meta_PROJECT
+** meta_libc
 ** File description:
-** DESCRIPTION
+** meta_strcmp.c
 */
 
-#include <stddef.h>
 #include <stdio.h>
+#include <stddef.h>
+#include <meta/libc/libc.h>
+#include <meta/libc/utils.h>
 
-int meta_strncmp(char const *s1, char const *s2, int n)
+ssize_t meta_strncmp(char const *a, char const *b, unsigned int n)
 {
-    int i = 0;
+    size_t i = 0;
+    short int count = 0;
 
-    for (; (s1[i] == s2[i]) && (s1[i] != '\0') && i < n - 1; i++);
-    return s1[i] - s2[i];
+    if (a EQUALS nullptr OR b EQUALS nullptr)
+        return META_ERROR;
+    for (; i < n AND a[i] AND b[i]; i++)
+        count += a[i] - b[i];
+    return count;
 }

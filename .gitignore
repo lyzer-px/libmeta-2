@@ -1,6 +1,7 @@
 libmeta.a
 *.o
 *~
+.cache
 *#
 .vscode
 vgcore*
@@ -16,3 +17,4 @@ libraires
 test
 meta_tools.h
 *.a
+*.gc*

@@ -1,42 +1,77 @@
 /*
 ** EPITECH PROJECT, 2024
-** minishell
+** mini_printf
 ** File description:
-** minishell1.c
+** a simple verion of meta_printf
 */
 
 #include <stdarg.h>
-#include "meta_libc.h"
+#include <meta/libc/libc.h>
+#include <meta/libc/utils.h>
+#include <unistd.h>
 
-static void get_flag(char flag, va_list arg)
+int check_flag(int fd, char flag, va_list arg)
 {
-    if (flag == 's') {
-        meta_putstr(va_arg(arg, char *));
+    switch (flag) {
+        case 'd':
+            return meta_putnbrfd(fd, va_arg(arg, int));
+            break;
+        case 'i':
+            return meta_putnbrfd(fd, va_arg(arg, int));
+            break;
+        case 's':
+            return meta_putstrfd(fd, va_arg(arg, char *));
+            break;
+        case 'c':
+            return meta_putcharfd(fd, va_arg(arg, int));
+            break;
+        case '%':
+            return meta_putcharfd(fd, '%');
     }
-    if (flag == 'e') {
-        meta_puterr(va_arg(arg, char *));
-    }
-    if (flag == 'd' || flag == 'i') {
-        meta_put_nbr(va_arg(arg, int));
-    }
-    if (flag == 'c') {
-        meta_putchar(va_arg(arg, int));
-    }
+    return META_FUNC_ERR;
 }
 
-int meta_mprintf(char const *format, ...)
+int meta_mprintf(const char *format, ...)
 {
-    va_list arg;
     int i = 0;
+    va_list arg;
+    int count = 0;
+    int hold = 0;
 
+    if (META_STR_EQ_NULL(format))
+        return META_FUNC_ERR;
     va_start(arg, format);
-    for (; format[i] != '\0'; i++) {
-        if (format[i] != '%') {
-            meta_putchar(format[i]);
-        } else {
+    for (hold = 0; format[i]; i++) {
+        if (format[i] EQUALS '%') {
+            hold = check_flag(STDOUT_FILENO, format[i + 1], arg);
+            count += hold;
             i++;
-            get_flag(format[i], arg);
+            continue;
         }
+        count += meta_putchar(format[i]);
     }
-    return 0;
+    va_end(arg);
+    return count;
+}
+
+int meta_mdprintf(int fd, const char *format, ...)
+{
+    int i = 0;
+    va_list arg;
+    int count = 0;
+    int hold = 0;
+
+    if (META_STR_EQ_NULL(format))
+        return META_FUNC_ERR;
+    va_start(arg, format);
+    for (hold = 0; format[i]; i++) {
+        if (format[i] EQUALS '%') {
+            hold = check_flag(STDOUT_FILENO, format[i + 1], arg);
+            count += hold;
+            continue;
+        }
+        count += meta_putcharfd(fd, format[i]);
+    }
+    va_end(arg);
+    return count;
 }
