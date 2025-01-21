@@ -10,7 +10,7 @@
 #include <criterion/redirect.h>
 #include <stdlib.h>
 #include <meta/libc/libc.h>
-#include <meta/libc/utils.h>
+#include <meta/utils.h>
 
 #define HELLO_WORLD_LEN 11
 

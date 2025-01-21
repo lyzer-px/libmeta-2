@@ -7,13 +7,13 @@
 
 #include <stdlib.h>
 #include <meta/libc/libc.h>
-#include <meta/libc/utils.h>
+#include <meta/utils.h>
 
-char *meta_strndup(char const *src, unsigned int n)
+char *meta_strdup(char const *src)
 {
     char *dest = malloc(sizeof(char) * meta_strlen(src) + 1);
 
-    if (META_STR_EQ_NULL(dest) OR META_STR_EQ_NULL(src))
+    if (dest EQUALS nullptr OR src EQUALS nullptr)
         return nullptr;
-    return meta_strncpy(dest, src, n);
+    return meta_strcpy(dest, src);
 }

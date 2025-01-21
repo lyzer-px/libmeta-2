@@ -7,23 +7,24 @@
 
 CC ?= gcc
 
-SRC 	=	src/meta_atonbr.c				\
-			src/meta_mprintf.c				\
-			src/meta_putchar.c				\
-			src/meta_puterr.c				\
-			src/meta_putnbr.c				\
-			src/meta_putstr.c				\
-			src/meta_strcat.c				\
-			src/meta_strcmp.c				\
-			src/meta_strcpy.c				\
-			src/meta_strdup.c				\
-			src/meta_strlen.c				\
-			src/meta_strncat.c				\
-			src/meta_strncmp.c				\
-			src/meta_strncpy.c				\
-			src/meta_strndup.c				\
-			src/meta_strstr.c				\
-			src/meta_word_array_delim.c		\
+SRC 	=	src/meta_atonbr.c						\
+			src/meta_nbrtoa.c						\
+			src/printers/meta_mprintf.c				\
+			src/printers/meta_putchar.c				\
+			src/printers/meta_puterr.c				\
+			src/printers/meta_putnbr.c				\
+			src/printers/meta_putstr.c				\
+			src/string/meta_strcat.c				\
+			src/string/meta_strcmp.c				\
+			src/string/meta_strcpy.c				\
+			src/string/meta_strdup.c				\
+			src/string/meta_strlen.c				\
+			src/string/meta_strncat.c				\
+			src/string/meta_strncmp.c				\
+			src/string/meta_strncpy.c				\
+			src/string/meta_strndup.c				\
+			src/string/meta_strstr.c				\
+			src/string/meta_strsplt.c
 
 ROOT	=	../..
 

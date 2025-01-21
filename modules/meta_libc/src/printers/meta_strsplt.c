@@ -8,7 +8,7 @@
 #include <stdio.h>
 #include <stddef.h>
 #include <stdlib.h>
-#include <meta/libc/utils.h>
+#include <meta/utils.h>
 
 static size_t count_delims(char *str, char delim)
 {
@@ -35,7 +35,7 @@ static void end_string(size_t *k, char *adr, size_t *j)
     *j = 0;
 }
 
-char **meta_word_array_delim(char *str, char delim)
+char **meta_strsplt(char *str, char delim)
 {
     size_t size = count_delims(str, delim);
     char **array = malloc(sizeof(char *) * (size + 2));

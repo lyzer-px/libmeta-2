@@ -5,10 +5,10 @@
 ** meta_strcpy.c
 */
 
-#include <meta/libc/utils.h>
 #include <stddef.h>
+#include <meta/utils.h>
 
-char *meta_strncpy(char *dest, const char *src, unsigned int n)
+char *meta_strcpy(char *dest, const char *src)
 {
     size_t i = 0;
 
@@ -16,7 +16,7 @@ char *meta_strncpy(char *dest, const char *src, unsigned int n)
         return nullptr;
     if (src EQUALS nullptr)
         return dest;
-    for (; src[i] AND i < n; i++)
+    for (; src[i]; i++)
         dest[i] = src[i];
     dest[i] = '\0';
     return dest;

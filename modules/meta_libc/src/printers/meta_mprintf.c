@@ -7,7 +7,7 @@
 
 #include <stdarg.h>
 #include <meta/libc/libc.h>
-#include <meta/libc/utils.h>
+#include <meta/utils.h>
 #include <unistd.h>
 
 int check_flag(int fd, char flag, va_list arg)

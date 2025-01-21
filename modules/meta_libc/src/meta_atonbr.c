@@ -7,7 +7,7 @@
 
 #include <stddef.h>
 #include <meta/libc/libc.h>
-#include <meta/libc/utils.h>
+#include <meta/utils.h>
 
 int meta_atoi(char const *str)
 {

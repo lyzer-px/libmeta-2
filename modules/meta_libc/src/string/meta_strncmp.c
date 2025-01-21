@@ -8,7 +8,7 @@
 #include <stdio.h>
 #include <stddef.h>
 #include <meta/libc/libc.h>
-#include <meta/libc/utils.h>
+#include <meta/utils.h>
 
 ssize_t meta_strncmp(char const *a, char const *b, unsigned int n)
 {
