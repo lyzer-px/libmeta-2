@@ -8,7 +8,7 @@
 #ifndef OBJECTS_H
     #define OBJECTS_H
     #include <stddef.h>
-
+    #include 
     #define FOR for
     #define FOREACH(method) FOR (size_t i = 0; method[i].type != META_END; i++)
 
@@ -51,43 +51,6 @@ typedef enum csfml_types_e {
 [[maybe_unused]] static const method_t METHODS_END =
 {META_END, nullptr, nullptr};
 
-void *create_renderwindow(void);
-void *create_sprite(void);
-void *create_sfwindow(void);
-void *create_clock(void);
-void *create_circleshape(void);
-void *create_context(void);
-void *create_convexshape(void);
-void *create_cursor(void);
-void *create_font(void);
-void *create_texture(void);
-void *create_circleshape(void);
-void *create_convexshape(void);
-void *create_cursor(void);
-void *create_image(void);
-void *create_font(void);
-void *create_image(void);
-void *create_music(void);
-void *create_rectangleshape(void);
-
-void destroy_renderwindow(object_t *object);
-void destroy_sprite(object_t *object);
-void destroy_sfwindow(object_t *object);
-void destructor_texture(object_t *object);
-void destroy_clock(object_t *object);
-void destroy_circleshape(object_t *object);
-void destroy_context(object_t *object);
-void destroy_convexshape(object_t *object);
-void destroy_cursor(object_t *object);
-void destroy_font(object_t *object);
-void destroy_circleshape(object_t *object);
-void destroy_convexshape(object_t *object);
-void destroy_cursor(object_t *object);
-void destroy_image(object_t *object);
-void destroy_font(object_t *object);
-void destroy_image(object_t *object);
-void destroy_music(object_t *object);
-void destroy_rectangleshape(object_t *object);
 
 [[maybe_unused]] static const method_t METHODS[] =
     {{SFRENDERWINDOW, &destroy_renderwindow, &create_renderwindow},

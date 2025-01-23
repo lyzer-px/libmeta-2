@@ -6,7 +6,7 @@
 */
 
 #include <meta/CSFML/objects.h>
-#include <meta/libc/utils.h>
+#include <meta/utils.h>
 #include <stddef.h>
 
 static void generic_destroy(object_t *object)

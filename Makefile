@@ -26,12 +26,10 @@ CFLAGS 	+= 	-Wall -Wextra -pedantic -std=c2x
 CPPFLAGS = 	-isystem $(VPATH)
 
 all:	$(NAME)
-
-$(NAME): $(OBJ)
 	$(MAKE) -C $(MODULES)/$(LIBC)
 	$(MAKE) -C $(MODULES)/$(LINKED)
 	$(MAKE) -C $(MODULES)/$(CSFML)
-	$(AR) rcs $(NAME) $(OBJ)
+
 clean:
 	$(MAKE) clean -C $(MODULES)/$(LIBC)
 	$(MAKE) clean -C $(MODULES)/$(LINKED)

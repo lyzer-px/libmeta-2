@@ -10,7 +10,7 @@
 #include <unistd.h>
 #include <meta/links/links.h>
 #include <meta/libc/libc.h>
-#include <meta/libc/utils.h>
+#include <meta/utils.h>
 
 meta_list_t *meta_node_create(void)
 {

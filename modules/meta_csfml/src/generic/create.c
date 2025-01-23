@@ -8,7 +8,7 @@
 #include <stddef.h>
 #include <stdlib.h>
 #include <meta/CSFML/objects.h>
-#include <meta/libc/utils.h>
+#include <meta/utils.h>
 
 static object_t *memset_object(void)
 {
