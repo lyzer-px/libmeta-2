@@ -25,7 +25,7 @@ CFLAGS 	+= 	-Wall -Wextra -pedantic -std=c2x
 
 CPPFLAGS = 	-isystem $(VPATH)
 
-all:	$(NAME)
+all:
 	$(MAKE) -C $(MODULES)/$(LIBC)
 	$(MAKE) -C $(MODULES)/$(LINKED)
 	$(MAKE) -C $(MODULES)/$(CSFML)

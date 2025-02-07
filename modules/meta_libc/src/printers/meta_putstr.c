@@ -1,5 +1,5 @@
 /*
-** EPITECH PROJECT, 2024
+** EPITECH PROJECT, 2025
 ** meta_libc
 ** File description:
 ** meta_putstr.c

@@ -1,5 +1,5 @@
 ##
-## EPITECH PROJECT, 2024
+## EPITECH PROJECT, 2025
 ## MAKEFILE
 ## File description:
 ## FILEMAKE
@@ -33,7 +33,7 @@ LDFLAGS = -L. ${LDLIBS}
 
 CFLAGS += -Wall -Wextra -pedantic -std=c2x
 
-CPPFLAGS = -isystem $(VPATH)
+CPPFLAGS = -iquote $(VPATH)
 
 OBJ	= $(SRC:.c=.o)
 

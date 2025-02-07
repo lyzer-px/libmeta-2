@@ -1,5 +1,5 @@
 /*
-** EPITECH PROJECT, 2024
+** EPITECH PROJECT, 2025
 ** libmeta [WSL: Ubuntu]
 ** File description:
 ** meta_strnrw.c

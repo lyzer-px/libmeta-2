@@ -1,5 +1,5 @@
 /*
-** EPITECH PROJECT, 2024
+** EPITECH PROJECT, 2025
 ** setting-up
 ** File description:
 ** word_array_delim.c

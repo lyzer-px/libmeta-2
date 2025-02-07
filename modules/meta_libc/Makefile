@@ -1,5 +1,5 @@
 ##
-## EPITECH PROJECT, 2024
+## EPITECH PROJECT, 2025
 ## MAKEFILE
 ## File description:
 ## FILEMAKE
@@ -8,7 +8,6 @@
 CC ?= gcc
 
 SRC 	=	src/meta_atonbr.c						\
-			src/meta_nbrtoa.c						\
 			src/printers/meta_mprintf.c				\
 			src/printers/meta_putchar.c				\
 			src/printers/meta_puterr.c				\
@@ -23,6 +22,7 @@ SRC 	=	src/meta_atonbr.c						\
 			src/string/meta_strncmp.c				\
 			src/string/meta_strncpy.c				\
 			src/string/meta_strndup.c				\
+			src/meta_nbrtoa.c						\
 			src/string/meta_strstr.c				\
 			src/string/meta_strsplt.c
 

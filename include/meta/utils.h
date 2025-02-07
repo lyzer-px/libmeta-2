@@ -12,7 +12,7 @@
     #define META_SUCCESS 0
     #define META_ERROR 84 // <- Epitech error code
     #define META_FUNC_ERR -1
-
+    #define META_MAX_SIZE 256
     //universal macros
     #define NOT(a) (!a)
     #define OR ||
@@ -38,5 +38,6 @@
     #define TO_CHAR(nb) (nb + '0')
     #define TO_INT(c) (c - '0')
 
+    #define BREAKPOINT(ret, eval) if ((eval) return (ret))
 
 #endif

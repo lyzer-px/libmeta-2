@@ -1,5 +1,5 @@
 /*
-** EPITECH PROJECT, 2024
+** EPITECH PROJECT, 2025
 ** mini_printf
 ** File description:
 ** a simple verion of meta_printf

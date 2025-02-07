@@ -1,5 +1,5 @@
 /*
-** EPITECH PROJECT, 2024
+** EPITECH PROJECT, 2025
 ** meta_libc [WSL: Ubuntu]
 ** File description:
 ** meta_strcat.c
