@@ -1,5 +1,5 @@
 /*
-** EPITECH PROJECT, 2024
+** EPITECH PROJECT, 2025
 ** B-MUL-100-PAR-1-1-myradar-liam.harfouche
 ** File description:
 ** my_hunter.h

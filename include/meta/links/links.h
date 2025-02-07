@@ -1,5 +1,5 @@
 /*
-** EPITECH PROJECT, 2024
+** EPITECH PROJECT, 2025
 ** meta_list_lib
 ** File description:
 ** linked_lists.h
