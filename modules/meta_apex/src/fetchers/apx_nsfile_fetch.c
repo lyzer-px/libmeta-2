@@ -16,6 +16,8 @@ char *apx_nsfile_fetch(char *filepath, char *token)
     size_t len = 0;
     FILE *file = fopen(filepath, APX_RDONLY);
 
+    BREAKPOINT(filepath == nullptr || token == nulptr || file == nullptr,
+    nullptr);
     while (getline(&buff, &len, file) != APX_FILEEND)
         if (META_STR_CONTAINS(buff, token)) {
             fclose(file);
