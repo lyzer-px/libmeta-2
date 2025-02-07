@@ -38,6 +38,6 @@
     #define TO_CHAR(nb) (nb + '0')
     #define TO_INT(c) (c - '0')
 
-    #define BREAKPOINT(ret, eval) if ((eval) return (ret))
+    #define BREAKPOINT(eval, ret) if ((eval)) return (ret)
 
 #endif
