@@ -8,7 +8,7 @@
 #ifndef OBJECTS_H
     #define OBJECTS_H
     #include <stddef.h>
-    #include 
+    #include "methods.h"
     #define FOR for
     #define FOREACH(method) FOR (size_t i = 0; method[i].type != META_END; i++)
 
