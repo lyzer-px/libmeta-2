@@ -56,7 +56,7 @@ debug: re
 
 tests_run: CPPFLAGS += --coverage -lcriterion
 tests_run: $(OBJ)
-	$(CC) $(CFLAGS) -o unit_tests $(OBJ) unitests/unit_tests.c $(CPPFLAGS)
+	$(CC) $(CFLAGS) -o unit_tests $(OBJ) tests/unit_tests.c $(CPPFLAGS)
 	./unit_tests
 	$(RM) unit_tests
 
