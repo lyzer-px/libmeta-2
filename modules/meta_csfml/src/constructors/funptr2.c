@@ -11,7 +11,7 @@
 #include <SFML/Window/Context.h>
 #include <SFML/Window/Cursor.h>
 #include <SFML/Audio/Music.h>
-#include <meta/CSFML/basics.h>
+#include "meta/CSFML/basics.h"
 
 void *create_context(void)
 {

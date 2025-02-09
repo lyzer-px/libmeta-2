@@ -6,8 +6,8 @@
 */
 
 #include <stdlib.h>
-#include <meta/libc/libc.h>
-#include <meta/utils.h>
+#include "meta/utils.h"
+#include "meta/libc/string.h"
 
 char *meta_strdup(char const *src)
 {

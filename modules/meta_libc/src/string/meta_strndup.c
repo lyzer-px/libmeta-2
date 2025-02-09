@@ -6,8 +6,8 @@
 */
 
 #include <stdlib.h>
-#include <meta/libc/libc.h>
-#include <meta/utils.h>
+#include "meta/utils.h"
+#include "meta/libc/string.h"
 
 char *meta_strndup(char const *src, unsigned int n)
 {

@@ -8,9 +8,9 @@
 #include <stddef.h>
 #include <stdlib.h>
 #include <unistd.h>
-#include <meta/links/links.h>
-#include <meta/libc/libc.h>
-#include <meta/utils.h>
+#include "meta/links/links.h"
+#include "meta/libc/printers.h"
+#include "meta/utils.h"
 
 meta_list_t *meta_node_create(void)
 {

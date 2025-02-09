@@ -8,7 +8,7 @@
 #include <stdio.h>
 #include <stddef.h>
 #include <stdlib.h>
-#include <meta/utils.h>
+#include "meta/utils.h"
 
 static size_t count_delims(char *str, char delim)
 {

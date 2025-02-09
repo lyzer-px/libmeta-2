@@ -26,7 +26,7 @@ typedef struct method_s {
 
 struct object_s {
     void *item;
-    int tag;
+    size_t tag;
     method_t methods;
 };
 
@@ -52,6 +52,25 @@ typedef enum csfml_types_e {
 [[maybe_unused]] static const method_t METHODS_END =
 {META_END, nullptr, nullptr};
 
+
+void destroy_renderwindow(object_t *object);
+void destroy_sprite(object_t *object);
+void destroy_sfwindow(object_t *object);
+void destructor_texture(object_t *object);
+void destroy_clock(object_t *object);
+void destroy_circleshape(object_t *object);
+void destroy_context(object_t *object);
+void destroy_convexshape(object_t *object);
+void destroy_cursor(object_t *object);
+void destroy_font(object_t *object);
+void destroy_circleshape(object_t *object);
+void destroy_convexshape(object_t *object);
+void destroy_cursor(object_t *object);
+void destroy_image(object_t *object);
+void destroy_font(object_t *object);
+void destroy_image(object_t *object);
+void destroy_music(object_t *object);
+void destroy_rectangleshape(object_t *object);
 
 [[maybe_unused]] static const method_t METHODS[] =
     {{SFRENDERWINDOW, &destroy_renderwindow, &create_renderwindow},

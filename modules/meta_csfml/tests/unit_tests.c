@@ -7,7 +7,7 @@
 
 #include <criterion/criterion.h>
 #include <criterion/internal/assert.h>
-#include <meta/CSFML/wrapper.h>
+#include "meta/CSFML/wrapper.h"
 
 
 Test(object_creation, non_null)

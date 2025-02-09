@@ -7,7 +7,7 @@
 
 #include <stddef.h>
 #include <unistd.h>
-#include <meta/utils.h>
+#include "meta/utils.h"
 
 ssize_t meta_strcmp(char const *a, char const *b)
 {

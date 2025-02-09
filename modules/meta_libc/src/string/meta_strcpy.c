@@ -6,7 +6,7 @@
 */
 
 #include <stddef.h>
-#include <meta/utils.h>
+#include "meta/utils.h"
 
 char *meta_strcpy(char *dest, const char *src)
 {

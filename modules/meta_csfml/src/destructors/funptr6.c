@@ -15,7 +15,7 @@
 #include <SFML/Graphics/RenderWindow.h>
 #include <SFML/Window/Context.h>
 #include <SFML/Window/Cursor.h>
-#include <meta/CSFML/objects.h>
+#include "meta/CSFML/objects.h"
 
 void destroy_circleshape(object_t *object)
 {

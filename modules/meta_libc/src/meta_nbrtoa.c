@@ -7,7 +7,7 @@
 
 #include <limits.h>
 #include <stdlib.h>
-#include <meta/utils.h>
+#include "meta/utils.h"
 
 static int meta_pow(int nb, int p)
 {

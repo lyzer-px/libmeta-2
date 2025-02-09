@@ -5,8 +5,8 @@
 ** meta_strnrw.c
 */
 
-#include <meta/libc/string.h>
-#include <meta/utils.h>
+#include "meta/libc/string.h"
+#include "meta/utils.h"
 
 char *meta_strnrw(unsigned int fwd, char *str, unsigned bkwd)
 {

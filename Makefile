@@ -23,7 +23,7 @@ VPATH 	= 	include
 
 CFLAGS 	+= 	-Wall -Wextra -pedantic -std=c2x
 
-CPPFLAGS = 	-isystem $(VPATH)
+CPPFLAGS = 	-iquote $(VPATH)
 
 all:
 	$(MAKE) -C $(MODULES)/$(LIBC)

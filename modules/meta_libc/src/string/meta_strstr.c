@@ -6,8 +6,8 @@
 */
 
 #include <stddef.h>
-#include <meta/utils.h>
-#include <meta/libc/libc.h>
+#include "meta/utils.h"
+#include "meta/libc/string.h"
 
 char *meta_strstr(char *str, char const *to_find)
 {

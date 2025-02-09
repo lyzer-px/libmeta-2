@@ -5,8 +5,8 @@
 ** meta_strcat.c
 */
 
-#include <meta/libc/libc.h>
-#include <meta/utils.h>
+#include "meta/utils.h"
+#include "meta/libc/string.h"
 
 char *meta_strncat(char *dest, const char *src, unsigned int n)
 {

@@ -21,7 +21,7 @@ VPATH 	= 	$(ROOT)/include/
 
 CFLAGS 	+= 	-Wall -Wextra -pedantic -std=c2x
 
-CPPFLAGS = 	-isystem $(VPATH)
+CPPFLAGS = 	-iquote $(VPATH)
 
 OBJ		 = 	$(SRC:.c=.o)
 

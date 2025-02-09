@@ -18,8 +18,8 @@
 #include <SFML/Graphics/RenderWindow.h>
 #include <SFML/Window/Context.h>
 #include <SFML/Window/Cursor.h>
-#include <meta/CSFML/objects.h>
 #include <stdlib.h>
+#include  "meta/CSFML/objects.h"
 
 void destroy_image(object_t *object)
 {

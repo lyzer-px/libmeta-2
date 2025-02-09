@@ -9,8 +9,8 @@
 #include <SFML/Graphics/Sprite.h>
 #include <SFML/Graphics/Types.h>
 #include <SFML/System/Clock.h>
-#include <meta/CSFML/objects.h>
 #include <stdlib.h>
+#include "meta/CSFML/objects.h"
 
 void destroy_renderwindow(object_t *object)
 {
